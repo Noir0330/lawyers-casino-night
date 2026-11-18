@@ -1,0 +1,186 @@
+- generic [active] [ref=f2e1]:
+  - generic [aria-hidden]:
+    - generic: ❄ ✦
+    - generic: ❄ ✦
+    - text: ❄ ✦
+    - generic: ❄ ✦
+    - generic: ❄ ✦
+    - text: ❄ ✦ ❄ ✦ ❄ ✦
+  - navigation "Үндсэн цэс" [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - text: ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣
+      - link "Урилга" [ref=f2e4] [cursor=pointer]:
+        - /url: /
+        - generic [aria-hidden] [ref=f2e5]: ♠
+      - link "Тоглоомын дүрэм" [ref=f2e7] [cursor=pointer]:
+        - /url: /history-2025/
+        - generic [aria-hidden] [ref=f2e8]: ♣
+      - link "Онцгой шалгаруулалт" [ref=f2e10] [cursor=pointer]:
+        - /url: /awards/
+        - generic [aria-hidden] [ref=f2e11]: ♦
+      - link "Уран бүтээлчид" [ref=f2e13] [cursor=pointer]:
+        - /url: /artists/
+        - generic [aria-hidden] [ref=f2e14]: ♥
+  - main [ref=f2e16]:
+    - generic [ref=f2e17]:
+      - generic [ref=f2e18]:
+        - generic [ref=f2e20]:
+          - generic [ref=f2e21]: Монголын өмгөөлөгчдийн холбоо · Шинэ жил 2027
+          - strong [ref=f2e22]: The Lawyers'Casino Night
+        - generic [ref=f2e24]:
+          - paragraph [ref=f2e25]: ONE NIGHT. ONE FORTUNE.ENDLESS MEMORIES.
+          - paragraph [ref=f2e26]:
+            - generic [ref=f2e27]: "2027"
+            - text: Монголын өмгөөлөгчдийн холбоо
+      - link "Casino experience хэсэг үзэх" [ref=f2e28] [cursor=pointer]:
+        - /url: "#casino-experience"
+    - generic [ref=f2e31]:
+      - paragraph [ref=f2e32]: Casino experience
+      - generic [ref=f2e33]:
+        - generic [ref=f2e34]: "2027"
+        - strong [ref=f2e35]: Тоглоомын ширээнүүд
+        - generic [ref=f2e36]: Ширээ бүрт мэргэжлийн дилер
+      - generic [ref=f2e37]:
+        - generic [ref=f2e38]:
+          - generic [ref=f2e39]: ♠
+          - generic [ref=f2e40]: Roulette
+        - generic [ref=f2e42]:
+          - generic [ref=f2e43]: ♥
+          - generic [ref=f2e44]: Poker
+        - generic [ref=f2e46]:
+          - generic [ref=f2e47]: ♦
+          - generic [ref=f2e48]: Blackjack
+        - generic [ref=f2e50]:
+          - generic [ref=f2e51]: ♣
+          - generic [ref=f2e52]: VIP Lounge
+    - region "Casino Games" [ref=f2e53]:
+      - paragraph [ref=f2e54]: THE LAWYERS' CASINO NIGHT — 2027
+      - heading "Casino Games" [level=2] [ref=f2e55]
+      - generic [ref=f2e56]:
+        - article [ref=f2e57] [cursor=pointer]:
+          - generic [ref=f2e58]:
+            - generic [ref=f2e59]: "01"
+            - img "Roulette хүрд" [ref=f2e60]
+            - text: ✦ · ❄ · ✦
+          - generic [ref=f2e61]:
+            - generic [ref=f2e62]: Өнгө, тоо таах
+            - strong [ref=f2e63]: Roulette
+            - emphasis [ref=f2e64]: Жетон хожих
+        - article [ref=f2e65] [cursor=pointer]:
+          - generic [ref=f2e66]:
+            - generic [ref=f2e67]: "02"
+            - img "Blackjack хөзөр" [ref=f2e68]
+            - text: ✦ · ❄ · ✦
+          - generic [ref=f2e69]:
+            - generic [ref=f2e70]: 21 оноонд
+            - strong [ref=f2e71]: Blackjack
+            - emphasis [ref=f2e72]: Ойртуулах
+        - article [ref=f2e73] [cursor=pointer]:
+          - generic [ref=f2e74]:
+            - generic [ref=f2e75]: "03"
+            - img "Poker жетон" [ref=f2e76]
+            - text: ✦ · ❄ · ✦
+          - generic [ref=f2e77]:
+            - generic [ref=f2e78]: Хөзрийн тэмцээн
+            - strong [ref=f2e79]: Poker
+            - emphasis [ref=f2e80]: Challenge
+        - article [ref=f2e81] [cursor=pointer]:
+          - generic [ref=f2e82]:
+            - generic [ref=f2e83]: "04"
+            - img "Lucky Dice шоо" [ref=f2e84]
+            - text: ✦ · ❄ · ✦
+          - generic [ref=f2e85]:
+            - generic [ref=f2e86]: Шоо орхих
+            - strong [ref=f2e87]: Lucky Dice
+            - emphasis [ref=f2e88]: Оноо авах
+        - article [ref=f2e89] [cursor=pointer]:
+          - generic [ref=f2e90]:
+            - generic [ref=f2e91]: "05"
+            - img "Wheel of Fortune азын хүрд" [ref=f2e92]
+            - text: ✦ · ❄ · ✦
+          - generic [ref=f2e93]:
+            - generic [ref=f2e94]: Азын хүрд
+            - strong [ref=f2e95]: Wheel of Fortune
+            - emphasis [ref=f2e96]: Эргүүлэх
+        - article [ref=f2e97] [cursor=pointer]:
+          - generic [ref=f2e98]:
+            - generic [ref=f2e99]: "06"
+            - img "Mystery Box нууц бэлэг" [ref=f2e100]
+            - text: ✦ · ❄ · ✦
+          - generic [ref=f2e101]:
+            - generic [ref=f2e102]: Нууц бэлэг
+            - strong [ref=f2e103]: Mystery Box
+            - emphasis [ref=f2e104]: Таах
+    - generic [ref=f2e105]:
+      - paragraph [ref=f2e106]: THE LAWYERS' CASINO NIGHT — 2027
+      - heading "Тоглоомын дүрэм" [level=1] [ref=f2e107]
+      - generic [ref=f2e108]:
+        - paragraph [ref=f2e109]: Зочин бүр ижил хэмжээний эхний жетон авна. Нэмэлт жетоныг зөвхөн тоглоомоор олно.
+        - paragraph [ref=f2e110]: Жетоныг мөнгөөр худалдаж авах, мөнгөөр солихгүй.
+        - paragraph [ref=f2e111]: Төгсгөлд хамгийн их жетонтой хүмүүстусгай шагналын эзэд болно.
+    - region "Dress code" [ref=f2e112]:
+      - generic [ref=f2e113]:
+        - text: ◆
+        - paragraph [ref=f2e114]: Dress code
+        - generic [ref=f2e115]:
+          - generic [ref=f2e116]:
+            - strong [ref=f2e117]: Эрчүүд
+            - paragraph [ref=f2e118]: Black tuxedo, bow tie, хар хослол, цагаан цамц.
+          - img "Playing cards" [ref=f2e120]
+          - generic [ref=f2e121]:
+            - strong [ref=f2e122]: Бүсгүйчүүд
+            - paragraph [ref=f2e123]: Улаан, хар, алтлаг урт даашинз, гялалзсан гоёл, маск.
+        - text: ◆
+    - generic [ref=f2e124]:
+      - paragraph [ref=f2e125]: 18:00 — 01:00
+      - heading "Хөтөлбөр" [level=2] [ref=f2e126]
+      - list [ref=f2e127]:
+        - listitem [ref=f2e128]:
+          - generic [ref=f2e129]: 18:00–19:00
+          - heading "Red Carpet, VIP угталт, Casino Games" [level=3] [ref=f2e131]
+        - listitem [ref=f2e132]:
+          - generic [ref=f2e133]: 19:00–19:10
+          - heading "Grand Opening – Casino Show" [level=3] [ref=f2e135]
+        - listitem [ref=f2e136]:
+          - generic [ref=f2e137]: 19:10–19:20
+          - heading "Холбооны удирдлагын мэндчилгээ, хүндэтгэлийн хэсэг" [level=3] [ref=f2e139]
+        - listitem [ref=f2e140]:
+          - generic [ref=f2e141]: 19:20–19:40
+          - heading "Dinner & Live Music" [level=3] [ref=f2e143]
+        - listitem [ref=f2e144]:
+          - generic [ref=f2e145]: 19:40–20:00
+          - heading "Casino Tournament Round 1" [level=3] [ref=f2e147]
+        - listitem [ref=f2e148]:
+          - generic [ref=f2e149]: 20:00–21:00
+          - heading "Superstar Live Performance" [level=3] [ref=f2e151]
+        - listitem [ref=f2e152]:
+          - generic [ref=f2e153]: 21:00–21:30
+          - heading "Poker & Blackjack Challenge" [level=3] [ref=f2e155]
+        - listitem [ref=f2e156]:
+          - generic [ref=f2e157]: 21:30–22:00
+          - heading "Casino King & Queen шалгаруулалт" [level=3] [ref=f2e159]
+        - listitem [ref=f2e160]:
+          - generic [ref=f2e161]: 22:00–22:30
+          - heading "Millionaire Night – Lucky Wheel" [level=3] [ref=f2e163]
+        - listitem [ref=f2e164]:
+          - generic [ref=f2e165]: 22:30–00:00
+          - heading "Surprise Artist & Dance Show" [level=3] [ref=f2e167]
+        - listitem [ref=f2e168]:
+          - generic [ref=f2e169]: 00:00–01:00
+          - heading "Royal Casino After Party – DJ" [level=3] [ref=f2e171]
+    - generic [ref=f2e172]:
+      - paragraph [ref=f2e173]: Онцгой шалгаруулалт
+      - heading "Casino Royal Awards" [level=2] [ref=f2e174]
+      - paragraph [ref=f2e175]: Casino King 2027 · Casino Queen 2027 · Best James Bond · Best Casino Glamour · Best Couple
+      - img "Casino Royal Crown" [ref=f2e177]
+      - link "Шалгаруулалт дэлгэрэнгүй →" [ref=f2e178] [cursor=pointer]:
+        - /url: /awards/
+    - generic [ref=f2e179]:
+      - generic [ref=f2e180]:
+        - paragraph [ref=f2e204]: One fortune. Endless memories.
+        - paragraph [ref=f2e205]: THE LAWYERS' CASINO NIGHT
+        - paragraph [ref=f2e206]: "2027"
+        - paragraph [ref=f2e208]:
+          - generic [ref=f2e209]: Presented by
+          - strong [ref=f2e210]: Mongolian Bar Association
+      - paragraph [ref=f2e211]: ONE NIGHT. ONE FORTUNE. ENDLESS MEMORIES.
