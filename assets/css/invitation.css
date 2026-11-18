@@ -340,6 +340,8 @@ body.greeting-video-open{overflow:hidden}
 .foot-names .n1,.foot-names .n2{display:inline}.foot-names .amp{margin:0 .25em;color:var(--accent);font-family:var(--f-display);font-style:italic;font-size:.6em}
 .foot-date{letter-spacing:.34em;color:var(--muted);font-size:.8rem;margin:8px 0 40px}
 .credit{font-size:.68rem;color:var(--muted);opacity:.8;margin:0 0 8px}
+.presented-by{display:flex;flex-direction:column;align-items:center;gap:10px;margin:0;color:var(--muted);font-size:.84rem;letter-spacing:.12em}
+.presented-by img{display:block;width:clamp(120px,22vw,150px);height:auto}
 .made{font-size:.72rem;color:var(--muted);text-decoration:none;opacity:.8;letter-spacing:.04em}.made:hover{opacity:1}
 
 /* Errët */
@@ -355,7 +357,7 @@ body.greeting-video-open{overflow:hidden}
 .envelope::after{content:"";position:absolute;inset:clamp(10px,2.2vw,24px);z-index:2;border:1px solid rgba(236,203,132,.38);border-radius:3px;box-shadow:inset 0 0 0 5px rgba(212,176,102,.035),0 0 55px rgba(255,185,70,.08);pointer-events:none}
 .envelope:focus-visible{outline:3px solid #f7d994;outline-offset:-7px}
 .env-stage{position:relative;z-index:3;width:min(100%,680px);min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(13px,2.4vh,25px);padding:clamp(38px,7vh,78px) 20px 28px}
-.env-kicker{display:flex;align-items:center;gap:13px;margin:0;color:#f2dfb4;font-size:clamp(.6rem,1.5vw,.72rem);font-weight:600;letter-spacing:.3em;text-align:center;text-transform:uppercase;text-shadow:0 2px 18px rgba(0,0,0,.8)}
+.env-kicker{position:relative;z-index:8;display:flex;align-items:center;gap:13px;margin:0 0 clamp(4px,1vh,10px);color:#f2dfb4;font-size:clamp(.6rem,1.5vw,.72rem);font-weight:600;letter-spacing:.3em;text-align:center;text-transform:uppercase;text-shadow:0 2px 18px rgba(0,0,0,.8)}
 .env-kicker span{color:#e6b84e;font-family:var(--f-display);font-size:1.1em;text-shadow:0 0 14px rgba(255,202,81,.9)}
 .env{position:relative;width:min(82vw,480px);aspect-ratio:1.52;perspective:1200px;filter:drop-shadow(0 34px 38px rgba(2,4,11,.55))}
 .env::before{content:"";position:absolute;inset:-9px;z-index:-1;border:1px solid rgba(232,193,105,.42);border-radius:13px;box-shadow:0 0 34px rgba(246,180,65,.12)}

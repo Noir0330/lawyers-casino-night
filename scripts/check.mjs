@@ -18,7 +18,7 @@ for (const [index, page] of pages.entries()) {
   if (!page.includes('lang="mn"')) failures.push(`${htmlPaths[index]}: missing Mongolian language declaration`);
   if (!page.includes('/assets/css/casino.css')) failures.push(`${htmlPaths[index]}: missing casino stylesheet`);
   if (!page.includes('casino-theme')) failures.push(`${htmlPaths[index]}: missing casino theme class`);
-  if (page.includes("Leaders of Mongolia") || page.includes("Angel Ina Ica")) failures.push(`${htmlPaths[index]}: old event content remains`);
+  if (page.includes("Leaders of Mongolia")) failures.push(`${htmlPaths[index]}: old event content remains`);
 }
 const requiredByPage = [
   [0, ["THE LAWYERS&apos; CASINO NIGHT", "Монголын өмгөөлөгчдийн холбоо · Шинэ жил 2027", "ONE NIGHT. ONE FORTUNE", "18:00–19:00", "00:00–01:00"]],
