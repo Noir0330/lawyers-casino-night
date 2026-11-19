@@ -6,6 +6,7 @@
   var mbtn = document.getElementById('musicBtn');
   var musicStateKey = 'leaders-music-state-v2';
   var invitationOpenedKey = 'leaders-invitation-opened-v1';
+  var honorLetterSeenKey = 'leaders-honor-letter-seen-v1';
   var mobileMenuNoticedKey = 'leaders-mobile-menu-noticed-v1';
   var musicShouldPlay = false;
   var lastKnownMusicTime = 0;
@@ -81,6 +82,38 @@
       zIndex: 1,
       autoResize: true
     });
+  }
+
+  // Asset дахь ганц жетонууд зоос шиг тонгорч, доош хурд авч унана.
+  if (globalFx && !reducedMotion) {
+    var jetonShower = document.createElement('div');
+    var compactJetons = window.innerWidth < 600;
+    var jetonCount = compactJetons ? 3 : 5;
+    var jetonImages = [
+      '/assets/casino/3d/poker-chip-red.png',
+      '/assets/casino/3d/poker-chip-black.png',
+      '/assets/casino/3d/poker-chip-blue.png',
+      '/assets/casino/3d/poker-chip-green.png'
+    ];
+    jetonShower.className = 'falling-jetons';
+    for (var jetonIndex = 0; jetonIndex < jetonCount; jetonIndex += 1) {
+      var jeton = document.createElement('span');
+      var jetonImage = document.createElement('img');
+      var jetonDuration = 7.4 + (jetonIndex % 4) * 0.8;
+      jeton.className = 'falling-jeton';
+      jeton.style.setProperty('--jeton-left', ((jetonIndex * 37 + 9) % 94) + '%');
+      jeton.style.setProperty('--jeton-size', ((compactJetons ? 48 : 58) + (jetonIndex % 3) * 9) + 'px');
+      jeton.style.setProperty('--jeton-duration', jetonDuration + 's');
+      jeton.style.setProperty('--jeton-delay', (-(0.9 + jetonIndex * jetonDuration / jetonCount)) + 's');
+      jeton.style.setProperty('--jeton-tumble-duration', (1.2 + (jetonIndex % 3) * 0.16) + 's');
+      jeton.style.setProperty('--jeton-tumble-delay', (-jetonIndex * 0.21) + 's');
+      jetonImage.src = jetonImages[jetonIndex % jetonImages.length];
+      jetonImage.alt = '';
+      jetonImage.draggable = false;
+      jeton.appendChild(jetonImage);
+      jetonShower.appendChild(jeton);
+    }
+    globalFx.appendChild(jetonShower);
   }
 
   function setupHeroVideo() {
@@ -650,13 +683,13 @@
     var menuBackdrop = mobileNav.querySelector('.mobile-menu-backdrop');
     var menuClose = mobileNav.querySelector('.mobile-menu-close');
     if (!menuToggle || !menuPanel || !menuBackdrop || !menuClose) return;
-    menuToggle.setAttribute('aria-label', 'Дэлгэрэнгүй цэс: шагнал, сугалаа, хөтөлбөр');
+    menuToggle.setAttribute('aria-label', 'Дэлгэрэнгүй цэс: тоглоом, dress code, хөтөлбөр, байршил');
 
     var menuHead = menuPanel.querySelector('.mobile-menu-head');
     if (menuHead && !menuHead.querySelector('.mobile-menu-lead')) {
       var menuLead = document.createElement('p');
       menuLead.className = 'mobile-menu-lead';
-      menuLead.textContent = 'Шагнал, сугалаа болон үдшийн бүх мэдээлэл';
+      menuLead.textContent = 'Casino Night-ийн хөтөлбөр болон хэрэгтэй мэдээлэл';
       menuHead.appendChild(menuLead);
     }
     [].slice.call(menuPanel.querySelectorAll('.mobile-menu-links a')).forEach(function (link) {
@@ -670,7 +703,7 @@
       mobileNav.classList.remove('has-menu-nudge');
       writeSession(mobileMenuNoticedKey, '1');
     };
-    var sectionIds = ['top', 's1', 'artists', 'program', 'location'];
+    var sectionIds = ['top', 'casino-experience', 'game-rules', 'assignment', 'dresscode', 'program', 'location'];
     var setMenu = function (open, restoreFocus) {
       dismissMenuNudge();
       mobileNav.classList.toggle('is-open', open);
@@ -712,7 +745,7 @@
         if (link.getAttribute('href') === '#' + currentId) link.setAttribute('aria-current', 'page');
         else link.removeAttribute('aria-current');
       });
-      menuToggle.classList.toggle('is-contextual', ['s1', 'program', 'location'].indexOf(currentId) !== -1);
+      menuToggle.classList.toggle('is-contextual', currentId !== 'top');
     };
     var navTicking = false;
     window.addEventListener('scroll', function () {
@@ -816,6 +849,43 @@
     });
   };
 
+  // Дугтуй нээгдсэний дараа хүндэтгэлийн захиаг тухайн session-д нэг удаа үзүүлнэ.
+  function setupHonorLetter(delay) {
+    var dialog = document.querySelector('[data-honor-letter]');
+    if (!dialog || dialog.getAttribute('data-honor-letter-ready') === 'true' || readSession(honorLetterSeenKey) === '1') return;
+    dialog.setAttribute('data-honor-letter-ready', 'true');
+    var closeButtons = [].slice.call(dialog.querySelectorAll('[data-honor-letter-close]'));
+    var closeTimer;
+
+    var closeLetter = function () {
+      if (!dialog.open || dialog.classList.contains('is-closing')) return;
+      dialog.classList.remove('is-open');
+      dialog.classList.add('is-closing');
+      body.classList.remove('honor-letter-open');
+      window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(function () {
+        if (typeof dialog.close === 'function' && dialog.open) dialog.close();
+        else dialog.removeAttribute('open');
+        dialog.classList.remove('is-closing');
+      }, reducedMotion ? 0 : 420);
+    };
+
+    closeButtons.forEach(function (button) { button.addEventListener('click', closeLetter); });
+    dialog.addEventListener('click', function (event) { if (event.target === dialog) closeLetter(); });
+    dialog.addEventListener('cancel', function (event) { event.preventDefault(); closeLetter(); });
+
+    window.setTimeout(function () {
+      if (!dialog.isConnected || readSession(honorLetterSeenKey) === '1') return;
+      writeSession(honorLetterSeenKey, '1');
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else dialog.setAttribute('open', '');
+      body.classList.add('honor-letter-open');
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () { dialog.classList.add('is-open'); });
+      });
+    }, delay || 0);
+  }
+
   var env = document.getElementById('envelope');
   if (env) {
     var opened = false;
@@ -825,9 +895,11 @@
       body.classList.add('opened'); setupHeroVideo(); playMusic(0);
       setTimeout(reveal, 1500);
       setTimeout(function () { env.remove(); }, 2500);
+      setupHonorLetter(2550);
     };
     if (readSession(invitationOpenedKey) === '1') {
       env.remove(); body.classList.add('opened'); setupHeroVideo(); reveal();
+      setupHonorLetter(550);
     } else {
       env.addEventListener('click', open);
       env.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
@@ -949,6 +1021,7 @@
     setupMusicContext(nextDocument.querySelector('#bgm'));
     setupEventFilm();
     setupCountdown();
+    setupHonorLetter(550);
     reveal();
 
     if (target.hash) {

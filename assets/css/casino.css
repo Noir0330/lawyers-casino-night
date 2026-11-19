@@ -30,10 +30,10 @@
 .casino-theme .envelope{background:radial-gradient(circle at 50% 45%,#164a34 0,#071710 55%,#020806 100%)}.casino-theme .envelope::before{background:repeating-conic-gradient(from 45deg at 50% 45%,rgba(216,180,93,.025) 0 3deg,transparent 3deg 16deg),radial-gradient(circle at 50% 44%,transparent 30%,rgba(0,0,0,.48) 100%)}.casino-theme .env-card::after{content:"♠  ♥  ♦  ♣"}.casino-theme .env-card{background:radial-gradient(circle at 50% 30%,rgba(216,180,93,.2),transparent 35%),linear-gradient(145deg,#07150f,#185039 52%,#07150f)}
 .casino-theme .hero-holiday{display:none}
 
-/* Direct five-item navigation */
+/* Four direct routes plus a fifth information drawer. */
 .casino-theme .desktop-nav{justify-content:space-between}.casino-theme .desktop-nav-links{margin-left:auto}.mobile-direct-icon{position:relative;z-index:1;display:block;color:var(--accent);font:500 1.25rem/1 var(--f-display)}
-@media(max-width:900px){.casino-theme{padding-bottom:calc(112px + env(safe-area-inset-bottom))}.casino-theme .mobile-nav-main{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;padding:10px 7px 7px}.casino-theme .mobile-nav-main::before{content:"♠  ♥  ♦  ♣  ♠  ♥  ♦  ♣"}.casino-theme .mobile-nav-main>a{min-height:58px;justify-content:center;gap:5px;padding:5px 3px;border:1px solid color-mix(in srgb,var(--suit-color) 16%,transparent);background:color-mix(in srgb,var(--suit-color) 4%,transparent);box-shadow:inset 0 0 18px color-mix(in srgb,var(--suit-color) 3%,transparent)}.casino-theme .mobile-nav-main>a>span:last-child{max-width:13ch;font-size:clamp(.49rem,1.85vw,.62rem);line-height:1.15}.casino-theme .mobile-nav-main>a[aria-current=page]{border-color:color-mix(in srgb,var(--suit-color) 34%,transparent);background:color-mix(in srgb,var(--suit-color) 13%,transparent);box-shadow:inset 0 0 24px color-mix(in srgb,var(--suit-color) 8%,transparent)}}
-.suit-spade{--suit-color:#e7bf5c}.suit-heart{--suit-color:#d85462}.suit-diamond{--suit-color:#55a9df}.suit-club{--suit-color:#55b983}.casino-theme .mobile-nav-main .suit-spade,.casino-theme .mobile-nav-main .suit-heart,.casino-theme .mobile-nav-main .suit-diamond,.casino-theme .mobile-nav-main .suit-club{color:var(--suit-color)}.casino-theme .mobile-direct-icon{color:currentColor;text-shadow:0 0 12px color-mix(in srgb,currentColor 44%,transparent)}.casino-theme .desktop-nav-link:is(.suit-spade,.suit-heart,.suit-diamond,.suit-club):hover,.casino-theme .desktop-nav-link:is(.suit-spade,.suit-heart,.suit-diamond,.suit-club)[aria-current=page]{color:var(--suit-color)}
+@media(max-width:900px){.casino-theme{padding-bottom:calc(112px + env(safe-area-inset-bottom))}.casino-theme .mobile-nav-main{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;padding:10px 7px 7px}.casino-theme .mobile-nav-main::before{content:"♠  ♥  ♦  ♣  ♠  ♥  ♦  ♣"}.casino-theme .mobile-nav-main>:is(a,.mobile-menu-toggle){min-height:58px;justify-content:center;gap:5px;padding:5px 3px;border:1px solid color-mix(in srgb,var(--suit-color) 16%,transparent);background:color-mix(in srgb,var(--suit-color) 4%,transparent);box-shadow:inset 0 0 18px color-mix(in srgb,var(--suit-color) 3%,transparent)}.casino-theme .mobile-nav-main>:is(a,.mobile-menu-toggle)>span:last-child{max-width:13ch;font-size:clamp(.49rem,1.85vw,.62rem);line-height:1.15}.casino-theme .mobile-nav-main>a[aria-current=page],.casino-theme .mobile-menu-toggle:is(.is-contextual,[aria-expanded=true]){border-color:color-mix(in srgb,var(--suit-color) 34%,transparent);background:color-mix(in srgb,var(--suit-color) 13%,transparent);box-shadow:inset 0 0 24px color-mix(in srgb,var(--suit-color) 8%,transparent)}}
+.suit-spade{--suit-color:#e7bf5c}.suit-heart{--suit-color:#d85462}.suit-diamond{--suit-color:#55a9df}.suit-club{--suit-color:#55b983}.casino-theme .mobile-nav-main .suit-spade,.casino-theme .mobile-nav-main .suit-heart,.casino-theme .mobile-nav-main .suit-diamond,.casino-theme .mobile-nav-main .suit-club{color:var(--suit-color)}.casino-theme .mobile-menu-toggle{--suit-color:#f3ca68;color:var(--suit-color)}.casino-theme .mobile-direct-icon{color:currentColor;text-shadow:0 0 12px color-mix(in srgb,currentColor 44%,transparent)}.casino-theme .desktop-nav-link:is(.suit-spade,.suit-heart,.suit-diamond,.suit-club):hover,.casino-theme .desktop-nav-link:is(.suit-spade,.suit-heart,.suit-diamond,.suit-club)[aria-current=page]{color:var(--suit-color)}
 
 /* Program timeline: alternating events around a continuous casino-gold rail. */
 .casino-theme .sec-flow{max-width:860px}
@@ -120,15 +120,62 @@
 .casino-theme .env-flap{background:linear-gradient(165deg,#8b1838,#5a0b21 58%,#2d0711);box-shadow:inset 0 1px rgba(255,234,172,.2)}
 .casino-theme .env-flap::before{background:linear-gradient(90deg,#724208,#d79f2f,#ffe89a,#bd7f19,#633704);background-size:220% 100%}
 .casino-theme .env-flap::after{background:linear-gradient(110deg,transparent 23%,rgba(255,205,104,.08) 43%,rgba(255,244,201,.34) 49%,rgba(147,81,20,.12) 55%,transparent 69%);background-size:210% 100%}
-.casino-theme .env-seal{background:radial-gradient(circle at 50% 50%,#18060b 0 34%,transparent 35%),repeating-conic-gradient(from 0deg,#c89428 0 9deg,#5e0c20 9deg 18deg);box-shadow:0 8px 20px rgba(0,0,0,.56),0 0 0 3px #24070e,0 0 0 5px #d4a43d,0 0 26px rgba(239,189,77,.2),inset 0 0 0 5px #280710}
-.casino-theme .env-seal::before{inset:16px;border-color:rgba(240,204,113,.65);box-shadow:0 0 0 3px #6b1027}
+.casino-theme .env-seal{width:clamp(96px,20vw,124px);height:clamp(96px,20vw,124px);background:transparent;box-shadow:none}
+.casino-theme .env-seal::before{display:none}
 .casino-theme .env-seal span{position:relative;z-index:1;color:#f2cf73;font-size:clamp(1.15rem,3.6vw,1.55rem);font-style:normal;text-shadow:0 0 12px rgba(242,207,115,.25)}
+.casino-theme .env-seal img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 7px 9px rgba(0,0,0,.55)) drop-shadow(0 0 12px rgba(243,202,104,.2))}
 .casino-theme .env-text{width:100%}
 .casino-theme .env-tap{background:rgba(26,5,12,.7);border-color:rgba(239,198,98,.78)}
 .casino-theme .env-tap b{color:#2a0710;background:linear-gradient(135deg,#ffe59b,#dca437)}
 .casino-theme.opened .env-card{z-index:1;transform:translateY(-64%) rotate(-2deg) scale(1.02)}
 
 @media(max-width:520px){.casino-theme .env-kicker{width:100%;max-width:none;justify-content:center;gap:7px;font-size:.5rem;letter-spacing:.14em;white-space:nowrap}.casino-theme .env-guest{padding-inline:12px;font-size:clamp(1.8rem,8vw,2.15rem)}}
+
+/* Хүндэтгэлийн захиа: дугтуй нээгдсэний дараа баруун талаас орж ирнэ. */
+.honor-letter{width:min(680px,calc(100vw - 36px));max-width:none;max-height:min(860px,calc(100svh - 36px));margin:auto;padding:0;overflow:visible;border:0;color:#2c1115;background:transparent;opacity:0;transform:translateX(min(92vw,860px)) rotate(1.5deg);transition:opacity .28s ease,transform .62s cubic-bezier(.16,1,.3,1)}
+.honor-letter::backdrop{background:rgba(8,2,7,.76);opacity:0;backdrop-filter:blur(9px) saturate(.72);-webkit-backdrop-filter:blur(9px) saturate(.72);transition:opacity .4s ease}
+.honor-letter.is-open{opacity:1;transform:translateX(0) rotate(0)}
+.honor-letter.is-open::backdrop{opacity:1}
+.honor-letter.is-closing{opacity:0;transform:translateX(min(92vw,860px)) rotate(1deg)}
+.honor-letter-card{position:relative;max-height:min(860px,calc(100svh - 36px));overflow:hidden;border:1px solid #bd8733;border-radius:5px;background:radial-gradient(circle at 18% 12%,rgba(255,255,255,.86),transparent 30%),radial-gradient(circle at 80% 88%,rgba(152,91,23,.1),transparent 34%),repeating-linear-gradient(0deg,rgba(105,62,18,.025) 0 1px,transparent 1px 4px),linear-gradient(142deg,#fff8e9,#f2dfbd 58%,#dfc08d);box-shadow:0 45px 110px rgba(0,0,0,.76),0 0 0 6px rgba(39,5,14,.92),0 0 0 7px rgba(231,188,81,.55),inset 0 0 0 1px rgba(255,255,255,.8),inset 0 0 72px rgba(98,45,10,.11)}
+.honor-letter-card::before{content:"";position:absolute;z-index:2;inset:12px;border:1px solid rgba(133,80,22,.3);border-radius:2px;pointer-events:none}
+.honor-letter-card::after{content:"✦";position:absolute;right:-.06em;bottom:-.2em;color:rgba(110,23,42,.055);font:400 14rem/1 var(--f-display);pointer-events:none}
+.honor-letter-scroll{position:relative;z-index:1;max-height:min(860px,calc(100svh - 36px));overflow:auto;overscroll-behavior:contain;padding:clamp(42px,7vw,66px) clamp(34px,7vw,70px) clamp(36px,6vw,58px);scrollbar-width:thin;scrollbar-color:#a9732d transparent;text-align:center}
+.honor-letter-close{position:absolute;z-index:4;top:19px;right:19px;width:38px;height:38px;display:grid;place-items:center;padding:0;border:1px solid rgba(111,55,21,.3);border-radius:50%;color:#631329;background:rgba(255,250,235,.56);font:300 1.45rem/1 var(--f-body);cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.honor-letter-close:hover{border-color:#8d5a1c;background:#fff9e9;transform:rotate(4deg)}
+.honor-letter-close:focus-visible,.honor-letter-continue:focus-visible{outline:2px solid #75172d;outline-offset:3px}
+.honor-letter-suit{position:absolute;z-index:3;color:#75172d;font:500 1rem/1 var(--f-display)}
+.honor-letter-suit-top{top:21px;left:23px}.honor-letter-suit-bottom{right:23px;bottom:21px;transform:rotate(180deg)}
+.honor-letter-kicker{margin:0 0 20px;color:#8d611f;font-size:.59rem;font-weight:800;letter-spacing:.27em;text-transform:uppercase}
+.honor-letter h2{margin:0;color:#641128;font:600 clamp(1.35rem,3.6vw,2rem)/1.15 var(--f-display);letter-spacing:.045em;text-wrap:balance}
+.honor-letter h2 span{display:block}.honor-letter h2 span+span{margin-top:7px}
+.honor-letter-divider{display:flex;align-items:center;justify-content:center;gap:13px;margin:24px auto;color:#8d611f}
+.honor-letter-divider i{width:62px;height:1px;background:linear-gradient(90deg,transparent,#9b6b25)}.honor-letter-divider i:last-child{background:linear-gradient(90deg,#9b6b25,transparent)}
+.honor-letter-divider span{width:28px;height:28px;display:grid;place-items:center;border:1px solid rgba(117,23,45,.34);border-radius:50%;color:#75172d;font-size:.72rem}
+.honor-letter-address{margin:0 0 22px;color:#563e36;font:500 clamp(.92rem,2.5vw,1.08rem)/1.65 var(--f-display)}
+.honor-letter-address strong{display:inline-block;margin-top:3px;color:#641128;font-size:1.2em;font-weight:600}
+.honor-letter-copy{color:#392b27;font:500 clamp(.82rem,2vw,.94rem)/1.82 var(--f-body)}
+.honor-letter-copy p{margin:0}.honor-letter-copy p+p{margin-top:17px}.honor-letter-copy strong{color:#68132a;font-weight:800}
+.honor-letter-closing{margin:26px 0 25px;color:#641128;font:600 clamp(1.08rem,2.8vw,1.38rem)/1.28 var(--f-display);font-style:italic;letter-spacing:.025em}
+.honor-letter-closing span{display:block}
+.honor-letter-continue{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:45px;padding:11px 17px 11px 21px;border:1px solid #a77528;border-radius:999px;color:#fff4d8;background:linear-gradient(135deg,#76162f,#3d0917);box-shadow:0 12px 28px rgba(65,8,22,.22),inset 0 1px rgba(255,255,255,.13);font-size:.62rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+.honor-letter-continue span{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;color:#47101c;background:#e5bd62;font-size:.95rem;letter-spacing:0}
+body.honor-letter-open{overflow:hidden}
+
+@media(max-width:600px){
+  .honor-letter{width:calc(100vw - 24px);max-height:calc(100svh - 24px)}
+  .honor-letter-card,.honor-letter-scroll{max-height:calc(100svh - 24px)}
+  .honor-letter-scroll{padding:52px 27px 40px}
+  .honor-letter-kicker{margin-bottom:16px;font-size:.5rem;letter-spacing:.2em}
+  .honor-letter h2{font-size:clamp(1.16rem,5.5vw,1.52rem)}
+  .honor-letter-divider{margin:19px auto}
+  .honor-letter-address{margin-bottom:18px;font-size:.92rem;line-height:1.5}
+  .honor-letter-copy{font-size:.77rem;line-height:1.72}
+  .honor-letter-copy p+p{margin-top:14px}
+  .honor-letter-closing{margin:21px 0;font-size:1.08rem}
+}
+@media(max-width:360px){.honor-letter-scroll{padding-inline:22px}.honor-letter-copy{font-size:.72rem}.honor-letter-close{top:15px;right:15px}.honor-letter-suit-top{top:18px;left:19px}}
+@media(prefers-reduced-motion:reduce){.honor-letter,.honor-letter::backdrop{transition-duration:.01ms!important}}
 
 /* Artist photography stays primary; the casino objects are supporting decoration. */
 .casino-theme .artist-card-image>.artist-card-photo-image{transform:scale(1.01);filter:saturate(.88) contrast(1.06);transition:transform .55s cubic-bezier(.22,1,.36,1),filter .55s ease}
@@ -178,6 +225,20 @@
 .casino-hero-art .casino-hero-title strong{font-size:clamp(3.1rem,7vw,4.45rem)}
 .hero-roulette-game{top:252px}
 
+/* Алтан Дэнс event lockup. */
+.casino-event-brand{display:flex;align-items:center;flex-direction:column}
+.casino-event-brand>small{margin-bottom:10px;color:#f5d77d!important;font-size:clamp(.48rem,1.7vw,.62rem);letter-spacing:.2em;text-shadow:0 2px 10px rgba(0,0,0,.85)}
+.casino-event-brand-lockup{display:flex;align-items:center;justify-content:center;gap:clamp(10px,2.5vw,17px)}
+.casino-event-brand-logo{position:relative;display:grid;width:clamp(68px,16vw,90px);flex:none;place-items:center;aspect-ratio:1;border:1px solid rgba(255,225,140,.72);border-radius:50%;background:radial-gradient(circle,rgba(255,238,178,.2),rgba(46,5,17,.5) 68%,rgba(12,5,12,.72));box-shadow:0 9px 22px rgba(0,0,0,.55),0 0 0 4px rgba(63,7,24,.7),0 0 0 5px rgba(242,193,76,.3),0 0 28px rgba(238,183,54,.2)}
+.casino-event-brand-logo::after{content:"";position:absolute;inset:-9px;border:1px solid rgba(243,202,104,.18);border-radius:50%}
+.casino-event-brand-logo img{position:relative;width:92%;height:92%;filter:drop-shadow(0 5px 7px rgba(0,0,0,.4));object-fit:contain}
+.casino-event-brand h1{display:flex;align-items:flex-start;flex-direction:column;margin:0;color:#fff0c5;text-align:left;text-shadow:0 6px 18px #120008,0 0 25px rgba(226,27,70,.22)}
+.casino-event-brand h1>span{font:600 clamp(3.05rem,9vw,4.65rem)/.72 var(--f-display);letter-spacing:-.045em;white-space:nowrap}
+.casino-event-brand h1>em{display:flex;width:100%;align-items:center;gap:9px;margin-top:10px;color:#f3ca68;font:700 clamp(.68rem,2vw,.86rem)/1 var(--f-body);font-style:normal;letter-spacing:.42em;text-indent:.42em}
+.casino-event-brand h1>em::before,.casino-event-brand h1>em::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(243,202,104,.72))}
+.casino-event-brand h1>em::after{background:linear-gradient(90deg,rgba(243,202,104,.72),transparent)}
+.casino-event-brand>p{margin:10px 0 0;color:rgba(255,235,196,.72);font:500 clamp(.5rem,1.7vw,.64rem)/1 var(--f-display);font-style:italic;letter-spacing:.32em;text-transform:uppercase}
+
 /* Keep the closing message inside the hero without covering the roulette. */
 .casino-theme .hero-celebration{padding-bottom:68px}
 .casino-theme .hero-celebration .hero-in{position:relative}
@@ -206,9 +267,15 @@ body.roulette-dialog-open{overflow:hidden}
 
 @media(max-width:720px){
   .casino-theme .casino-hero-art{min-height:600px}
-  .casino-hero-art .casino-hero-title{top:28px;right:5%;left:5%}
+  .casino-hero-art .casino-hero-title{top:24px;right:4%;left:4%}
   .casino-hero-art .casino-hero-title strong{font-size:clamp(2.75rem,12vw,3.25rem)}
-  .hero-roulette-game{top:154px;width:min(82%,350px)}
+  .casino-event-brand>small{margin-bottom:8px;letter-spacing:.14em}
+  .casino-event-brand-lockup{gap:11px}
+  .casino-event-brand-logo{width:clamp(58px,16vw,72px)}
+  .casino-event-brand h1>span{font-size:clamp(2.55rem,11.5vw,3.55rem)}
+  .casino-event-brand h1>em{margin-top:7px;font-size:.61rem}
+  .casino-event-brand>p{margin-top:8px;font-size:.48rem}
+  .hero-roulette-game{top:170px;width:min(82%,350px)}
   .casino-theme .hero-celebration{padding-bottom:62px}
   .casino-theme .hero-copy{margin-inline:14px}
   .casino-theme .hero-message{padding:13px 14px 12px;border-radius:15px}
@@ -220,9 +287,14 @@ body.roulette-dialog-open{overflow:hidden}
 }
 @media(max-width:360px){
   .casino-theme .casino-hero-art{min-height:570px}
-  .casino-hero-art .casino-hero-title{top:24px}
+  .casino-hero-art .casino-hero-title{top:20px}
   .casino-hero-art .casino-hero-title strong{font-size:2.7rem}
-  .hero-roulette-game{top:144px;width:80%}
+  .casino-event-brand>small{font-size:.43rem}
+  .casino-event-brand-lockup{gap:9px}
+  .casino-event-brand-logo{width:54px}
+  .casino-event-brand h1>span{font-size:2.35rem}
+  .casino-event-brand h1>em{margin-top:6px;font-size:.55rem}
+  .hero-roulette-game{top:160px;width:80%}
   .casino-theme .hero-message>p:first-child{font-size:.86rem}
   .casino-theme .hero-message .hosts{gap:7px;font-size:.68rem}
   .casino-theme .hero-message .hosts span{padding-right:7px}
@@ -551,3 +623,70 @@ body.roulette-dialog-open{overflow:hidden}
   .casino-theme .sec-cd .cd b{width:72px;font-size:2.65rem;box-shadow:0 0 0 5px color-mix(in srgb,var(--table-color) 4%,transparent),0 0 24px color-mix(in srgb,var(--table-color) 17%,transparent)}
   .casino-theme .sec-cd .cd span{margin-top:16px;font-size:.55rem;letter-spacing:.13em}
 }
+
+/* Event location and forecast: casino-table cards with a usable embedded map. */
+.casino-theme .casino-event-location{max-width:none;padding:clamp(76px,9vw,112px) clamp(18px,4vw,48px);overflow:hidden}
+.casino-event-location::before{content:"♦";position:absolute;top:40px;left:max(18px,5vw);color:rgba(243,202,104,.06);font:500 clamp(8rem,18vw,15rem)/1 var(--f-display);transform:rotate(-12deg);pointer-events:none}
+.casino-location-head{position:relative;z-index:1;max-width:760px;margin:0 auto 34px}
+.casino-location-head h2{margin-bottom:12px!important;background:linear-gradient(110deg,#fff7e7,#f3ca68 52%,#fff4dc);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:clamp(2.6rem,7vw,4.5rem)!important}
+.casino-location-head .addr{margin-bottom:0;color:#d7bdad;font-size:.82rem;letter-spacing:.08em}
+.casino-location-head .addr .ic{width:18px;color:#f3ca68}
+.casino-location-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.75fr);gap:22px;width:min(100%,1120px);margin:0 auto;text-align:left}
+.casino-map-card,.casino-weather-card{border:1px solid rgba(243,202,104,.3);border-radius:30px;background:radial-gradient(circle at 18% 10%,rgba(224,43,82,.16),transparent 35%),linear-gradient(145deg,rgba(56,8,23,.96),rgba(11,10,21,.98));box-shadow:inset 0 0 0 7px rgba(243,202,104,.025),0 34px 75px -52px #000}
+.casino-map-card{padding:15px 15px 22px;text-align:center}
+.casino-map-frame{position:relative;min-height:430px;overflow:hidden;border:1px solid rgba(243,202,104,.22);border-radius:20px;background:#160a10}
+.casino-map-frame::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 35px rgba(21,4,11,.5)}
+.casino-map-frame iframe{display:block;width:100%;height:430px;border:0;filter:saturate(.72) sepia(.08) contrast(1.04)}
+.casino-map-card .btn-line{margin-top:20px;border-color:rgba(243,202,104,.62);color:#fff3dc;background:rgba(11,8,17,.36);font-size:.67rem}
+.casino-map-card .btn-line:hover{color:#260711;background:#f3ca68}
+.casino-weather-card{position:relative;isolation:isolate;display:flex;min-height:100%;flex-direction:column;justify-content:center;padding:clamp(30px,4vw,48px);overflow:hidden;text-align:center}
+.casino-weather-card::before{content:"♠   ♥\A♦   ♣";position:absolute;inset:auto -18px -28px auto;z-index:-1;color:rgba(243,202,104,.045);font:500 7.5rem/.7 var(--f-display);white-space:pre;transform:rotate(-8deg)}
+.casino-weather-icon{display:grid;width:86px;height:86px;margin:0 auto 24px;place-items:center;border:1px solid rgba(100,179,231,.48);border-radius:50%;color:#76bde8;background:radial-gradient(circle,rgba(88,174,240,.18),rgba(5,7,16,.3) 70%);box-shadow:0 0 0 7px rgba(88,174,240,.035),0 0 32px rgba(88,174,240,.15)}
+.casino-weather-icon svg{width:58px;fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.casino-weather-meta{margin:0 0 8px;color:#d7bdad;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.casino-weather-card h3{margin:0;color:#fff4df;font:500 clamp(1.8rem,4vw,2.45rem)/1.08 var(--f-display)}
+.casino-temperatures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:30px 0 24px}
+.casino-temperatures div{padding:20px 10px;border:1px solid rgba(243,202,104,.19);border-radius:18px;background:rgba(6,7,15,.35);text-align:center}
+.casino-temperatures span{display:block;margin-bottom:8px;color:#d6b8bd;font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.casino-temperatures strong{color:#f3ca68;font:500 clamp(2rem,4vw,2.7rem)/1 var(--f-display);font-variant-numeric:tabular-nums}
+.casino-weather-note{margin:0 auto;color:#eadde0;font-size:.9rem;line-height:1.7;text-align:center;text-wrap:balance}
+.casino-theme .sec-awards-preview{padding-top:60px}
+@media(max-width:820px){.casino-location-grid{grid-template-columns:1fr;max-width:620px}.casino-weather-card{min-height:420px}.casino-map-frame,.casino-map-frame iframe{height:360px;min-height:360px}}
+@media(max-width:520px){.casino-theme .casino-event-location{padding-inline:14px}.casino-location-head{margin-bottom:26px}.casino-location-head .addr{align-items:flex-start;font-size:.7rem;line-height:1.55}.casino-map-card,.casino-weather-card{border-radius:24px}.casino-map-card{padding:10px 10px 19px}.casino-map-frame,.casino-map-frame iframe{height:310px;min-height:310px;border-radius:17px}.casino-map-card .btn-line{padding:11px 15px;font-size:.58rem;letter-spacing:.1em}.casino-weather-card{min-height:390px;padding:34px 20px}.casino-temperatures{margin-block:25px 21px}.casino-temperatures div{padding:18px 6px}.casino-temperatures strong{font-size:2.1rem}}
+
+/* Pre-event assignment styled as a premium cinema ticket. */
+.casino-theme .sec-assignment{max-width:980px;padding-top:34px;padding-bottom:88px}
+.assignment-card{position:relative;isolation:isolate;min-height:460px;overflow:hidden;border:1px solid rgba(243,202,104,.48);border-radius:30px;background:#12070c;box-shadow:inset 0 0 0 8px rgba(243,202,104,.025),0 34px 75px -50px #000}
+.assignment-card::before,.assignment-card::after{content:"";position:absolute;z-index:3;top:50%;width:34px;aspect-ratio:1;border:1px solid rgba(243,202,104,.48);border-radius:50%;background:#16050d;transform:translateY(-50%)}
+.assignment-card::before{left:-18px}.assignment-card::after{right:-18px}
+.assignment-visual{position:absolute;inset:0;z-index:-2;background:url("/assets/images/niigmiin-daisan-enhanced.jpg") center 40%/cover no-repeat}
+.assignment-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,5,8,.08) 0,rgba(14,5,10,.16) 32%,rgba(22,5,13,.68) 59%,rgba(7,7,17,.96) 100%),linear-gradient(180deg,rgba(5,5,9,.04),rgba(8,4,10,.24));pointer-events:none}
+.assignment-copy{position:relative;z-index:1;display:flex;width:58%;min-height:460px;margin-left:auto;flex-direction:column;align-items:center;justify-content:center;padding:50px 44px;text-align:center}
+.assignment-copy::before{content:"01";position:absolute;top:25px;right:31px;color:rgba(243,202,104,.18);font:500 2.3rem/1 var(--f-display)}
+.assignment-copy .sec-kicker{margin-bottom:13px;color:#f3ca68}
+.assignment-copy h2{margin:0 0 24px!important;color:#fff2d2;font-size:clamp(2.5rem,6vw,4.2rem)!important}
+.assignment-copy>p{margin:0;color:#fff7e7}
+.assignment-copy>p strong{display:block;background:linear-gradient(110deg,#fff5d8,#f3ca68 52%,#fff4dc);-webkit-background-clip:text;background-clip:text;color:transparent;font:600 clamp(2rem,5vw,3.6rem)/1 var(--f-display);text-wrap:balance}
+.assignment-copy>p span{display:block;margin-top:12px;color:#d9bec1;font-size:.9rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+@media(max-width:680px){.casino-theme .sec-assignment{padding:25px 14px 68px}.assignment-card{min-height:650px}.assignment-visual{background-position:center 42%}.assignment-visual::before{background:linear-gradient(180deg,rgba(8,5,8,.03) 0,rgba(10,5,9,.12) 30%,rgba(20,5,13,.72) 58%,rgba(7,7,17,.97) 100%)}.assignment-copy{width:100%;min-height:650px;margin:0;justify-content:flex-end;padding:300px 22px 54px}.assignment-copy::before{top:19px;right:23px;font-size:1.65rem}.assignment-copy h2{margin-bottom:18px!important}.assignment-copy>p span{font-size:.7rem}.assignment-card::before,.assignment-card::after{top:50%}}
+
+/* Dinner route: the original four-course menu recast as casino table cards. */
+.casino-theme .menu-route-hero::before{content:"♣";position:absolute;top:50%;left:50%;color:rgba(243,202,104,.045);font:500 clamp(17rem,45vw,34rem)/1 var(--f-display);transform:translate(-50%,-48%) rotate(-10deg);pointer-events:none}
+.casino-theme .menu-route-hero>:not(.menu-route-back){position:relative;z-index:1}
+.casino-theme .menu-route-mark{background:radial-gradient(circle,rgba(243,202,104,.13),rgba(12,7,18,.36) 68%);box-shadow:0 0 0 8px rgba(243,202,104,.045),0 0 54px rgba(237,47,91,.16)}
+.casino-theme .menu-route h1 span:last-child{background:linear-gradient(110deg,#fff6d9,#f3ca68 48%,#df8e2f);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
+.casino-theme .dinner-menu{isolation:isolate}
+.casino-theme .dinner-menu::before{content:"♠   ♥\A♦   ♣";position:absolute;top:230px;right:-40px;z-index:-1;color:rgba(243,202,104,.035);font:500 clamp(7rem,16vw,12rem)/.72 var(--f-display);white-space:pre;transform:rotate(8deg);pointer-events:none}
+.casino-theme .menu-course{--course-color:#f3ca68;border-color:color-mix(in srgb,var(--course-color) 43%,transparent);background:radial-gradient(100% 90% at 100% 0%,color-mix(in srgb,var(--course-color) 11%,transparent),transparent 58%),linear-gradient(145deg,rgba(76,9,28,.96),rgba(19,8,20,.98));box-shadow:inset 0 0 0 7px color-mix(in srgb,var(--course-color) 3%,transparent),0 30px 66px -48px #000}
+.casino-theme .menu-main-grid .menu-course:first-child{--course-color:#df5868}
+.casino-theme .menu-main-grid .menu-course:last-child{--course-color:#64afe0}
+.casino-theme .menu-course-dessert{--course-color:#58bc85}
+.casino-theme .menu-course-label,.casino-theme .menu-course-en,.casino-theme .menu-ingredients span{color:var(--course-color)}
+.casino-theme .menu-course-number{color:var(--course-color);border-color:color-mix(in srgb,var(--course-color) 48%,transparent);background:color-mix(in srgb,var(--course-color) 7%,transparent)}
+.casino-theme .menu-course-media{border-color:color-mix(in srgb,var(--course-color) 38%,transparent);background:#100812}
+.casino-theme .menu-course-media img{filter:saturate(.94) contrast(1.04)}
+.casino-theme .menu-course-media::after{background:linear-gradient(180deg,transparent 48%,rgba(15,4,12,.68))}
+.casino-theme .menu-drinks{border:1px solid rgba(100,175,224,.32);border-radius:28px;background:radial-gradient(circle at 10% 25%,rgba(86,170,224,.12),transparent 35%),linear-gradient(145deg,rgba(44,8,25,.96),rgba(13,8,20,.98));box-shadow:inset 0 0 0 7px rgba(100,175,224,.025),0 30px 66px -48px #000}
+.casino-theme .menu-drinks-title p,.casino-theme .menu-drinks li small{color:#72b9e6}
+.casino-theme .menu-vvip{border-color:rgba(243,202,104,.5);background:radial-gradient(80% 180% at 0% 50%,rgba(243,202,104,.13),transparent 70%),linear-gradient(145deg,rgba(76,9,28,.96),rgba(19,8,20,.98))}
+@media(max-width:720px){.casino-theme .menu-route-hero::before{font-size:20rem}.casino-theme .menu-route h1{font-size:clamp(2.15rem,10vw,2.75rem)}.casino-theme .dinner-menu::before{display:none}.casino-theme .menu-drinks{padding:34px 26px}}

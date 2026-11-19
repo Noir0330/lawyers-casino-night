@@ -21,28 +21,38 @@ for (const [index, page] of pages.entries()) {
   if (page.includes("Leaders of Mongolia")) failures.push(`${htmlPaths[index]}: old event content remains`);
 }
 const requiredByPage = [
-  [0, ["THE LAWYERS&apos; CASINO NIGHT", "Монголын өмгөөлөгчдийн холбоо · Шинэ жил 2027", "ONE NIGHT. ONE FORTUNE", "18:00–19:00", "00:00–01:00"]],
+  [0, ["THE LAWYERS&apos; CASINO NIGHT", "Монголын өмгөөлөгчдийн холбоо · Шинэ жил 2027", "ONE NIGHT. ONE FORTUNE", "18:00–19:00", "00:00–01:00", "Roulette", "Рулет", "Texas", "Техас", "Darts", "Дартс", "Question and Answer", "Асуулт хариулт", "Tested One&apos;s Resourcefulness and Quick-Wittedness", "Авхаалж самбаа сорьсон тоглоом", "жетон болон коктейлийн ваучер", "Үдшийн шилдэг"]],
   [1, ["Серёжа", "Гангаа", "Х. Лхагвасүрэн", "С.Наран", "Magnet brain", "Г.Энэрэл", "Л.Болдбаатар"]],
-  [2, ["Black tuxedo", "Улаан, хар, алтлаг урт даашинз"]],
-  [3, ["Roulette тоглоомын ширээ", "Poker ширээ", "Blackjack ширээ", "Casino lounge болон VIP суудал", "мэргэжлийн дилер"]],
-  [4, ["ижил хэмжээний эхний жетон", "зөвхөн тоглоомоор олно", "мөнгөөр худалдаж авах", "тусгай шагналын эзэд"]],
-  [5, ["Roulette", "Blackjack", "Poker", "Lucky Dice", "Wheel of Fortune", "Mystery Box"]],
+  [2, ["Fruit garden salad", "Жимстэй шинэ ногооны", "Roasted chicken thigh", "Үхрийн махан филей", "Гүзээлзгэнэтэй бялуу", "Шингэн хүнс", "VVIP ширээ"]],
+  [3, ["Roulette", "Рулет", "Texas", "Техас", "Darts", "Дартс", "Question and Answer", "Асуулт хариулт", "Tested One&apos;s Resourcefulness and Quick-Wittedness", "Авхаалж самбаа сорьсон тоглоом"]],
+  [4, ["жетон болон коктейлийн ваучер", "хамгийн олон жетон", "Үдшийн шилдэг", "5 төрлийн тоглоом", "Хожигдвол өгсөн жетоноо алдаж", "хожвол жетоны тоогоо нэмнэ"]],
+  [5, ["Roulette", "Рулет", "Texas", "Техас", "Darts", "Дартс", "Question and Answer", "Асуулт хариулт", "Tested One&apos;s Resourcefulness and Quick-Wittedness", "Авхаалж самбаа сорьсон тоглоом"]],
   [6, ["Casino King 2027", "Casino Queen 2027", "Best James Bond", "Best Casino Glamour", "Best Couple"]]
 ];
 for (const [pageIndex, copies] of requiredByPage) for (const copy of copies) if (!pages[pageIndex].toLowerCase().includes(copy.toLowerCase())) failures.push(`${htmlPaths[pageIndex]}: missing copy: ${copy}`);
 for (const [index, page] of pages.slice(0, 7).entries()) {
   const desktopNav = page.match(/<nav class="desktop-nav"[\s\S]*?<\/nav>/)?.[0] ?? "";
   const mobileNav = page.match(/<nav class="mobile-nav"[\s\S]*?<\/nav>/)?.[0] ?? "";
-  for (const label of ["Урилга", "Тоглоомын дүрэм", "Онцгой шалгаруулалт", "Уран бүтээлчид"]) {
+  const mobileNavMain = mobileNav.match(/<div class="mobile-nav-main">[\s\S]*?<\/div>/)?.[0] ?? "";
+  const primaryLabels = ["Урилга", "Уран бүтээлчид", "Зоог", "Шалгаруулалт"];
+  for (const label of primaryLabels) {
     if (!desktopNav.includes(label) || !mobileNav.includes(label)) failures.push(`${htmlPaths[index]}: missing primary navigation item: ${label}`);
   }
-  for (const duplicateRoute of ['/lottery/', '/tickets/', '/menu/']) {
+  const desktopOrder = primaryLabels.map((label) => desktopNav.indexOf(label));
+  const mobileOrder = primaryLabels.map((label) => mobileNavMain.indexOf(label));
+  if (desktopOrder.some((position, itemIndex) => itemIndex && position < desktopOrder[itemIndex - 1])) failures.push(`${htmlPaths[index]}: incorrect desktop navigation order`);
+  if (mobileOrder.some((position, itemIndex) => itemIndex && position < mobileOrder[itemIndex - 1])) failures.push(`${htmlPaths[index]}: incorrect mobile navigation order`);
+  for (const duplicateRoute of ['/lottery/', '/tickets/', '/history-2025/']) {
     if (desktopNav.includes(duplicateRoute) || mobileNav.includes(duplicateRoute)) failures.push(`${htmlPaths[index]}: duplicate route remains in primary navigation: ${duplicateRoute}`);
   }
   if ((desktopNav.match(/<a class="desktop-nav-link/g) ?? []).length !== 4) failures.push(`${htmlPaths[index]}: desktop navigation must contain exactly four links`);
-  if ((mobileNav.match(/<a /g) ?? []).length !== 4) failures.push(`${htmlPaths[index]}: mobile navigation must contain exactly four links`);
+  if ((mobileNavMain.match(/<a /g) ?? []).length !== 4) failures.push(`${htmlPaths[index]}: mobile primary navigation must contain exactly four links`);
+  if (!mobileNavMain.includes('class="mobile-menu-toggle"')) failures.push(`${htmlPaths[index]}: missing fifth burger menu item`);
+  for (const label of ["Тоглоомын төрөл", "Тоглоомын дүрэм", "Даалгавар", "Dress code", "Хөтөлбөр", "Байршил"]) {
+    if (!mobileNav.includes(label)) failures.push(`${htmlPaths[index]}: missing burger menu item: ${label}`);
+  }
 }
-const casinoAssets = ["roulette.png", "cards.png", "chips.png", "dice.png", "prize-wheel.png", "crown.png", "mystery-box.png"];
+const casinoAssets = ["roulette.png", "cards.png", "chips.png", "poker-chip-red.png", "poker-chip-black.png", "poker-chip-blue.png", "poker-chip-green.png", "dice.png", "prize-wheel.png", "crown.png", "mystery-box.png"];
 for (const asset of casinoAssets) {
   try { await access(path.join(root, "assets/casino/3d", asset)); } catch { failures.push(`Missing optimized 3D asset: ${asset}`); }
 }
