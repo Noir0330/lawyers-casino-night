@@ -391,7 +391,7 @@ body.greeting-video-open{overflow:hidden}
 .env-year::after{background:linear-gradient(90deg,#ddb35a,transparent)}
 .env-year small{font-size:.56rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
 .env-year strong{font-family:var(--f-display);font-size:1rem;font-weight:600;letter-spacing:.12em}
-.env-guest{margin:3px 0 0;font-family:var(--f-display);font-size:clamp(2rem,7vw,3.2rem);font-weight:500;line-height:1.04}
+.env-guest{margin:3px 0 0;color:#fff7e6;font-family:var(--f-display);font-size:clamp(2rem,7vw,3.2rem);font-weight:600;line-height:1.04;animation:env-guest-shimmer 4.8s ease-in-out infinite}
 .env-guest .n1,.env-guest .n2{display:inline}.env-guest .amp{margin:0 .25em;color:var(--accent);font-family:var(--f-display);font-style:italic;font-size:.6em}
 .env-wish{margin:8px 0 0;color:#dfd2bc;font-family:var(--f-display);font-size:clamp(.95rem,2.6vw,1.12rem);font-style:italic;letter-spacing:.06em}
 .env-tap{width:max-content;display:flex;align-items:center;gap:16px;margin:15px auto 0;padding:11px 13px 11px 20px;border:1px solid rgba(235,197,112,.72);border-radius:999px;background:rgba(11,18,32,.48);box-shadow:0 8px 30px rgba(0,0,0,.24),inset 0 0 18px rgba(212,176,102,.05);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);color:#f4d58c;font-size:.61rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;animation:pulse 2.3s ease-in-out infinite}
@@ -409,6 +409,7 @@ body.greeting-video-open{overflow:hidden}
 @keyframes env-border-flow{0%,100%{background-position:0 0;filter:brightness(.92)}50%{background-position:100% 0;filter:brightness(1.18)}}
 @keyframes env-flap-shine{0%,20%{background-position:130% 0;opacity:0}38%{opacity:1}62%,100%{background-position:-100% 0;opacity:0}}
 @keyframes env-surface-glint{0%,30%,100%{opacity:0;transform:scale(.25) rotate(0)}44%{opacity:1;transform:scale(1.2) rotate(90deg)}60%{opacity:.18;transform:scale(.55) rotate(180deg)}}
+@keyframes env-guest-shimmer{0%,28%,58%,100%{color:#fff7e6;text-shadow:0 3px 24px rgba(0,0,0,.85)}43%{color:#fffdf3;text-shadow:0 0 7px rgba(255,235,171,.9),0 0 20px rgba(242,193,78,.55),0 3px 24px rgba(0,0,0,.85)}}
 @keyframes env-ornament-left{0%,100%{transform:rotate(-2.2deg) translateY(0)}50%{transform:rotate(2.1deg) translateY(5px)}}
 @keyframes env-ornament-right{0%,100%{transform:scaleX(-1) rotate(-1.5deg) translateY(0)}50%{transform:scaleX(-1) rotate(2deg) translateY(6px)}}
 .opened .env-flap{transform:rotateX(180deg);z-index:0}
