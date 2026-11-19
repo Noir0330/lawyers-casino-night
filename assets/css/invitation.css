@@ -393,6 +393,7 @@ body.greeting-video-open{overflow:hidden}
 .env-year strong{font-family:var(--f-display);font-size:1rem;font-weight:600;letter-spacing:.12em}
 .env-guest{margin:3px 0 0;color:#fff7e6;font-family:var(--f-display);font-size:clamp(2rem,7vw,3.2rem);font-weight:600;line-height:1.04;animation:env-guest-shimmer 4.8s ease-in-out infinite}
 .env-guest .n1,.env-guest .n2{display:inline}.env-guest .amp{margin:0 .25em;color:var(--accent);font-family:var(--f-display);font-style:italic;font-size:.6em}
+.env-title-gold{color:#f2c14e}
 .env-wish{margin:8px 0 0;color:#dfd2bc;font-family:var(--f-display);font-size:clamp(.95rem,2.6vw,1.12rem);font-style:italic;letter-spacing:.06em}
 .env-tap{width:max-content;display:flex;align-items:center;gap:16px;margin:15px auto 0;padding:11px 13px 11px 20px;border:1px solid rgba(235,197,112,.72);border-radius:999px;background:rgba(11,18,32,.48);box-shadow:0 8px 30px rgba(0,0,0,.24),inset 0 0 18px rgba(212,176,102,.05);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);color:#f4d58c;font-size:.61rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;animation:pulse 2.3s ease-in-out infinite}
 .env-tap b{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#d4b066;color:#15223d;font-size:1rem;font-weight:400;letter-spacing:0}
