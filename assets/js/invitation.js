@@ -683,7 +683,7 @@
     var menuBackdrop = mobileNav.querySelector('.mobile-menu-backdrop');
     var menuClose = mobileNav.querySelector('.mobile-menu-close');
     if (!menuToggle || !menuPanel || !menuBackdrop || !menuClose) return;
-    menuToggle.setAttribute('aria-label', 'Дэлгэрэнгүй цэс: тоглоом, dress code, хөтөлбөр, байршил');
+    menuToggle.setAttribute('aria-label', 'Дэлгэрэнгүй цэс: мэндчилгээ, тоглоом, dress code, хөтөлбөр, байршил');
 
     var menuHead = menuPanel.querySelector('.mobile-menu-head');
     if (menuHead && !menuHead.querySelector('.mobile-menu-lead')) {
@@ -703,7 +703,7 @@
       mobileNav.classList.remove('has-menu-nudge');
       writeSession(mobileMenuNoticedKey, '1');
     };
-    var sectionIds = ['top', 'casino-experience', 'game-rules', 'assignment', 'dresscode', 'program', 'location'];
+    var sectionIds = ['top', 'director-greeting', 'casino-experience', 'game-rules', 'assignment', 'dresscode', 'program', 'location'];
     var setMenu = function (open, restoreFocus) {
       dismissMenuNudge();
       mobileNav.classList.toggle('is-open', open);
@@ -801,7 +801,7 @@
 
     cards.forEach(function (card) {
       var src = card.getAttribute('data-video-src') || '';
-      var status = card.querySelector('.greeting-card-copy em');
+      var status = card.querySelector('[data-greeting-status], .greeting-card-copy em');
       if (!src) {
         card.disabled = true;
         card.setAttribute('aria-disabled', 'true');

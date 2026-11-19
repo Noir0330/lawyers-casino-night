@@ -30,6 +30,16 @@ const requiredByPage = [
   [6, ["Casino King 2027", "Casino Queen 2027", "Best James Bond", "Best Casino Glamour", "Best Couple"]]
 ];
 for (const [pageIndex, copies] of requiredByPage) for (const copy of copies) if (!pages[pageIndex].toLowerCase().includes(copy.toLowerCase())) failures.push(`${htmlPaths[pageIndex]}: missing copy: ${copy}`);
+const musicByPage = [
+  [0, "/assets/audio/happy-new-year-abba.mp3"],
+  [1, "/assets/audio/last-christmas-wham.mp3"],
+  [2, "/assets/audio/all-i-want-for-christmas-is-you.mp3"],
+  [6, "/assets/audio/jingle-joy.mp3"]
+];
+for (const [pageIndex, musicPath] of musicByPage) {
+  if (!pages[pageIndex].includes(`<audio id="bgm" src="${musicPath}"`)) failures.push(`${htmlPaths[pageIndex]}: missing music track: ${musicPath}`);
+  if (!pages[pageIndex].includes('id="musicBtn"')) failures.push(`${htmlPaths[pageIndex]}: missing music toggle`);
+}
 for (const [index, page] of pages.slice(0, 7).entries()) {
   const desktopNav = page.match(/<nav class="desktop-nav"[\s\S]*?<\/nav>/)?.[0] ?? "";
   const mobileNav = page.match(/<nav class="mobile-nav"[\s\S]*?<\/nav>/)?.[0] ?? "";

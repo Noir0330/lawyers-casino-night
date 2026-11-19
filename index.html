@@ -16,6 +16,7 @@
 <div class="mobile-menu-backdrop" aria-hidden="true"></div>
 <div class="mobile-menu-panel" id="mobileMenu" aria-hidden="true" inert><div class="mobile-menu-head"><div><span>The Lawyers&apos; Casino Night</span><strong>Мэдээлэл</strong></div><button class="mobile-menu-close" type="button" aria-label="Цэс хаах"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"></path></svg></button></div>
 <div class="mobile-menu-links">
+<a href="#director-greeting"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="2"></rect><path d="m10 9 5 3-5 3z"></path></svg><span>Захирлын мэндчилгээ</span><svg class="mobile-menu-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></a>
 <a href="#casino-experience"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v12H5z"></path><path d="m8 9 2 2m0-2-2 2m6 3h.01M17 11h.01"></path></svg><span>Тоглоомын төрөл</span><svg class="mobile-menu-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></a>
 <a href="#game-rules"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v16H6z"></path><path d="M9 8h6M9 12h6M9 16h4"></path></svg><span>Тоглоомын дүрэм</span><svg class="mobile-menu-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></a>
 <a href="#assignment"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.6 5.3 5.9.9-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.9z"></path></svg><span>Даалгавар</span><svg class="mobile-menu-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></a>
@@ -35,7 +36,7 @@
 <p class="honor-letter-address">Монголын өмгөөлөгчдийн холбооны гишүүн<br><strong>Эрхэм хүндэт өмгөөлөгч Танаа!</strong></p>
 <div class="honor-letter-copy">
 <p>Шударга ёсны төлөөх үнэ цэнтэй хөдөлмөр, өмгөөллийн салбарт оруулсан үнэтэй хувь нэмэр, үеийн үед өвлөгдөх мэргэжлийн ёс зүй, туршлага тань бидний эрхэм хүндлэл билээ.</p>
-<p>Үе үеийн эрхэм нөхөд өмгөөлөгчид нэгэн дор цуглаж, дурсамжаа хуваалцан, шинэ оноо баяр хөөртэй угтах <strong>“Алтан Дэнс-2026” SPECIAL CASINO NIGHT</strong> Шинэ жилийн хүндэтгэлийн цэнгүүнд Эрхэм Таныг хүндэтгэн урьж байна.</p>
+<p>Үе үеийн эрхэм нөхөд өмгөөлөгчид нэгэн дор цуглаж, дурсамжаа хуваалцан, шинэ оноо баяр хөөртэй угтах <strong>“Алтан Дэнс-2026” SPECIAL CASINO NIGHT</strong> Шинэ жилийн хүндэтгэлийн цэнгүүнд <span class="honor-letter-invite-line">Эрхэм Таныг хүндэтгэн урьж байна.</span></p>
 </div>
 <p class="honor-letter-closing"><span>Нэгэн салбарынхан</span><span>Нэгэн эрхэм хүндэтгэлээр</span><span>Нэгэн дурсамжийг бүтээцгээе.</span></p>
 <button class="honor-letter-continue" type="button" data-honor-letter-close>Үргэлжлүүлэх <span aria-hidden="true">→</span></button>
@@ -60,10 +61,28 @@
 <div class="cd rv" aria-label="Арга хэмжээ эхлэх хүртэлх хугацаа"><div><b data-u="d">0</b><span>Өдөр</span></div><i></i><div><b data-u="h">00</b><span>Цаг</span></div><i></i><div><b data-u="m">00</b><span>Минут</span></div><i></i><div><b data-u="s">00</b><span>Секунд</span></div></div>
 </section>
 
+<section class="sec sec-director-greeting" id="director-greeting" aria-labelledby="director-greeting-heading">
+<div class="director-greeting-heading rv">
+<p class="sec-kicker">Шинэ оны мэндчилгээ</p>
+<h2 id="director-greeting-heading">Захирлын мэндчилгээ</h2>
+<p>Монголын Өмгөөлөгчдийн Холбооны удирдлагын баярын мэндчилгээг хүлээн авна уу.</p>
+</div>
+<!-- Видео бэлэн болоход data-video-src-д файлын зам, data-video-poster-т нүүр зургийн замыг оруулна. -->
+<button class="director-video-card rv" type="button" data-greeting-card data-video-src="" data-video-poster="" data-video-title="Захирлын мэндчилгээ">
+<span class="director-video-frame" aria-hidden="true">
+<span class="director-video-corner director-video-corner-top">♠</span>
+<span class="director-video-corner director-video-corner-bottom">♠</span>
+<span class="director-video-emblem"><img src="/assets/images/altan-denes-logo.png" width="210" height="210" alt=""></span>
+<span class="director-video-play"><svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5z"></path></svg></span>
+<span class="director-video-status" data-greeting-status>Видео удахгүй</span>
+</span>
+<span class="director-video-caption"><small>The Lawyers&apos; Casino Night · 2027</small><strong>Хүндэтгэлийн мэндчилгээ</strong><span>Монголын Өмгөөлөгчдийн Холбоо</span></span>
+</button>
+</section>
+
 <section class="sec sec-greetings" id="casino-experience" aria-labelledby="greetings-heading">
 <p class="sec-kicker rv">5-н төрлийн тоглоом</p>
 <h2 class="greetings-title rv" id="greetings-heading">Тоглоомын төрөл</h2>
-<!-- Видео бэлэн болоход тухайн card-ийн data-video-src-д файлын зам, data-video-poster-т нүүр зургийн замыг оруулна. -->
 <div class="greeting-grid">
 <article class="greeting-card rv"><span class="greeting-card-visual"><span class="greeting-card-number">01</span><img class="greeting-card-asset greeting-card-asset-roulette" src="/assets/casino/3d/roulette.png" loading="lazy" decoding="async" alt="Roulette хүрд"></span><span class="greeting-card-copy"><small>Рулет</small><strong>Roulette</strong><em>Casino table</em></span></article>
 <article class="greeting-card rv"><span class="greeting-card-visual"><span class="greeting-card-number">02</span><img class="greeting-card-asset greeting-card-asset-cards" src="/assets/casino/3d/cards.png" loading="lazy" decoding="async" alt="Texas хөзөр"></span><span class="greeting-card-copy"><small>Техас</small><strong>Texas</strong><em>Card game</em></span></article>
@@ -91,31 +110,54 @@
 </article>
 </section>
 
-<section class="sec sec-sponsor" id="dresscode" aria-labelledby="sponsor-heading">
-<div class="sponsor-card rv">
-<p class="sec-kicker" id="sponsor-heading">Dress code</p>
-<div class="sponsor-grid">
-<div class="sponsor-brand"><strong>Эрчүүд</strong><p>Black tuxedo, bow tie, хар хослол, цагаан цамц.</p></div>
-<div class="sponsor-brand"><img src="/assets/casino/3d/cards.png" loading="lazy" alt="Playing cards"></div>
-<div class="sponsor-brand"><strong>Бүсгүйчүүд</strong><p>Улаан, хар, алтлаг урт даашинз, гялалзсан гоёл, маск.</p></div>
+<section class="sec sec-sponsor dress-code" id="dresscode" aria-labelledby="dress-code-heading">
+<div class="dress-code-shell rv">
+<header class="dress-code-head">
+<p class="sec-kicker">Dress code</p>
+<h2 id="dress-code-heading">Casino Gala</h2>
+<p>Эрхэмсэг, гялалзсан үдшийн төрх</p>
+</header>
+<div class="dress-code-stage">
+<article class="dress-code-card dress-code-card-men">
+<span class="dress-code-suit" aria-hidden="true">♠</span>
+<small>Gentlemen</small>
+<h3>Эрчүүд</h3>
+<p>Black tuxedo, bow tie, хар хослол, цагаан цамц.</p>
+</article>
+<figure class="dress-code-portrait">
+<span class="dress-code-halo" aria-hidden="true"></span>
+<img src="/assets/images/dress-code-couple.png" width="768" height="1152" loading="lazy" decoding="async" alt="Хар tuxedo өмссөн эрэгтэй, улаан урт даашинзтай эмэгтэй">
+</figure>
+<article class="dress-code-card dress-code-card-women">
+<span class="dress-code-suit" aria-hidden="true">♥</span>
+<small>Ladies</small>
+<h3>Бүсгүйчүүд</h3>
+<p>Улаан, хар, алтлаг урт даашинз, гялалзсан гоёл, маск.</p>
+</article>
 </div>
+<p class="dress-code-palette"><span>Black</span><i></i><span>Ruby</span><i></i><span>Gold</span></p>
 </div>
 </section>
 
 <section class="sec sec-flow" id="program">
-<p class="sec-kicker rv">2026 оны 12 сарын 25 · 18:00 — 01:00</p><h2 class="rv">Хөтөлбөр</h2>
+<header class="program-head rv">
+<p class="sec-kicker">2026 оны 12 сарын 25 · 18:00 — 01:00</p>
+<h2>Хөтөлбөр</h2>
+<p class="program-lead">Нэгэн үдэш · Арван нэгэн онцгой мөч</p>
+<div class="program-summary" aria-label="Хөтөлбөрийн хураангуй"><span><strong>11</strong> event</span><i></i><span><strong>7</strong> hours</span><i></i><span><strong>1</strong> night</span></div>
+</header>
 <ol class="flow casino-program-list">
-<li class="rv"><div class="f-time">18:00–19:00</div><div class="f-body"><h3>Red Carpet, VIP угталт, Casino Games</h3></div></li>
-<li class="rv r"><div class="f-time">19:00–19:10</div><div class="f-body"><h3>Grand Opening – Casino Show</h3></div></li>
-<li class="rv"><div class="f-time">19:10–19:20</div><div class="f-body"><h3>Холбооны удирдлагын мэндчилгээ, хүндэтгэлийн хэсэг</h3></div></li>
-<li class="rv r"><div class="f-time">19:20–19:40</div><div class="f-body"><h3>Dinner &amp; Live Music</h3></div></li>
-<li class="rv"><div class="f-time">19:40–20:00</div><div class="f-body"><h3>Casino Tournament Round 1</h3></div></li>
-<li class="rv r"><div class="f-time">20:00–21:00</div><div class="f-body"><h3>Superstar Live Performance</h3></div></li>
-<li class="rv"><div class="f-time">21:00–21:30</div><div class="f-body"><h3>Texas &amp; Darts Challenge</h3></div></li>
-<li class="rv r"><div class="f-time">21:30–22:00</div><div class="f-body"><h3>Casino King &amp; Queen шалгаруулалт</h3></div></li>
-<li class="rv"><div class="f-time">22:00–22:30</div><div class="f-body"><h3>Question and Answer · Авхаалж самбааны сорил</h3></div></li>
-<li class="rv r"><div class="f-time">22:30–00:00</div><div class="f-body"><h3>Surprise Artist &amp; Dance Show</h3></div></li>
-<li class="rv"><div class="f-time">00:00–01:00</div><div class="f-body"><h3>Royal Casino After Party – DJ</h3></div></li>
+<li class="rv"><div class="f-time">18:00–19:00</div><div class="f-body"><small>Arrival &amp; play</small><h3>Red Carpet, VIP угталт, Casino Games</h3></div></li>
+<li class="rv r"><div class="f-time">19:00–19:10</div><div class="f-body"><small>Opening act</small><h3>Grand Opening – Casino Show</h3></div></li>
+<li class="rv"><div class="f-time">19:10–19:20</div><div class="f-body"><small>Welcome</small><h3>Холбооны удирдлагын мэндчилгээ, хүндэтгэлийн хэсэг</h3></div></li>
+<li class="rv r"><div class="f-time">19:20–19:40</div><div class="f-body"><small>Dinner show</small><h3>Dinner &amp; Live Music</h3></div></li>
+<li class="rv"><div class="f-time">19:40–20:00</div><div class="f-body"><small>Game round</small><h3>Casino Tournament Round 1</h3></div></li>
+<li class="rv r"><div class="f-time">20:00–21:00</div><div class="f-body"><small>Live stage</small><h3>Superstar Live Performance</h3></div></li>
+<li class="rv"><div class="f-time">21:00–21:30</div><div class="f-body"><small>Challenge</small><h3>Texas &amp; Darts Challenge</h3></div></li>
+<li class="rv r"><div class="f-time">21:30–22:00</div><div class="f-body"><small>Royal awards</small><h3>Casino King &amp; Queen шалгаруулалт</h3></div></li>
+<li class="rv"><div class="f-time">22:00–22:30</div><div class="f-body"><small>Special challenge</small><h3>Question and Answer · Авхаалж самбааны сорил</h3></div></li>
+<li class="rv r"><div class="f-time">22:30–00:00</div><div class="f-body"><small>Headline show</small><h3>Surprise Artist &amp; Dance Show</h3></div></li>
+<li class="rv"><div class="f-time">00:00–01:00</div><div class="f-body"><small>Finale</small><h3>Royal Casino After Party – DJ</h3></div></li>
 </ol>
 </section>
 
@@ -139,6 +181,7 @@
 <circle cx="-32" cy="-17" r="3.5"></circle><circle cx="32" cy="-17" r="3.5"></circle><circle cx="0" cy="-28" r="4"></circle></g></svg></div>
 <p class="see">One fortune. Endless memories.</p><p class="foot-names"><span class="n1">THE LAWYERS&apos; CASINO NIGHT</span></p><p class="foot-date">2027</p></div>
 <p class="presented-by"><span>Presented by</span><img src="/assets/images/angel-logo-english.png" loading="lazy" alt="Angel Ina Ica LLC"></p></footer></main>
+<audio id="bgm" src="/assets/audio/happy-new-year-abba.mp3" loop preload="none"></audio><button class="music-btn" id="musicBtn" type="button" aria-label="Хөгжим тоглуулах эсвэл зогсоох"><span></span><span></span><span></span><span></span></button>
 <script>window.__INV={"mode":"demo","slug":"","code":""}</script><script src="/assets/js/snowflakes.min.js" defer=""></script><script src="/assets/js/invitation.js" defer=""></script>
 </body></html>
 
