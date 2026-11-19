@@ -90,10 +90,10 @@
     var compactJetons = window.innerWidth < 600;
     var jetonCount = compactJetons ? 3 : 5;
     var jetonImages = [
-      '/assets/casino/3d/poker-chip-red.png',
-      '/assets/casino/3d/poker-chip-black.png',
-      '/assets/casino/3d/poker-chip-blue.png',
-      '/assets/casino/3d/poker-chip-green.png'
+      '/assets/casino/3d/poker-chip-red.avif',
+      '/assets/casino/3d/poker-chip-black.avif',
+      '/assets/casino/3d/poker-chip-blue.avif',
+      '/assets/casino/3d/poker-chip-green.avif'
     ];
     jetonShower.className = 'falling-jetons';
     for (var jetonIndex = 0; jetonIndex < jetonCount; jetonIndex += 1) {

@@ -54,21 +54,9 @@ h1,h2,h3{font-weight:400;margin:0}
 .hero-message>p:first-child{margin:0;font-family:var(--f-display);font-size:clamp(1.2rem,4.8vw,1.45rem);font-style:italic;line-height:1.65}
 .hero-message .hosts{margin-top:22px}
 
-/* Металл тоглоомууд гүн рүү зөөлөн шилжиж, өлгүүрээсээ бодитоор савлана. */
-.hero-holiday{position:absolute;inset:0;z-index:3;overflow:hidden;pointer-events:none;perspective:900px}
-.hero-holiday-baubles{position:absolute;top:-24px;left:max(-8px,calc(50% - 280px));width:clamp(116px,27vw,148px);height:auto;display:block;transform-origin:50% 0;transform-style:preserve-3d;backface-visibility:hidden;will-change:transform,filter;filter:drop-shadow(0 13px 14px rgba(4,8,20,.5));animation:ornament-float-3d 8.8s cubic-bezier(.45,.08,.55,.92) infinite}
-.hero-holiday-spark{position:absolute;color:var(--accent);font-family:var(--f-display);line-height:1;text-shadow:0 0 16px color-mix(in srgb,var(--accent) 70%,transparent)}
-.hero-holiday-spark-one{top:90px;right:max(6%,calc(50% - 260px));font-size:clamp(1.3rem,4vw,2rem);animation:holiday-twinkle 3s ease-in-out infinite}
-.hero-holiday-spark-two{top:145px;right:max(-10px,calc(50% - 305px));font-size:clamp(3.1rem,11vw,5.8rem);opacity:.48;animation:holiday-twinkle 4.2s ease-in-out -1.4s infinite}
-@keyframes ornament-float-3d{0%,100%{transform:translate3d(-2px,4px,0) rotateX(1deg) rotateY(-4deg) rotateZ(-2.2deg) scale(.985);filter:drop-shadow(0 13px 14px rgba(4,8,20,.5)) brightness(.96)}38%{transform:translate3d(3px,-4px,18px) rotateX(-1.5deg) rotateY(3deg) rotateZ(1.7deg) scale(1);filter:drop-shadow(-4px 20px 18px rgba(4,8,20,.38)) brightness(1.06)}68%{transform:translate3d(-1px,-1px,8px) rotateX(.5deg) rotateY(-2deg) rotateZ(-.7deg) scale(.995);filter:drop-shadow(2px 16px 16px rgba(4,8,20,.44)) brightness(1.01)}}
-@keyframes holiday-twinkle{0%,100%{opacity:.24;transform:scale(.82) rotate(0)}50%{opacity:.75;transform:scale(1.06) rotate(8deg)}}
-
 @media (min-width:760px){
   .hero-celebration{padding-bottom:120px}
   .hero-copy{padding-inline:36px}
-  .hero-holiday-baubles{top:-14px;left:max(18px,calc(50% - 380px));width:166px}
-  .hero-holiday-spark-one{top:124px;right:max(8%,calc(50% - 370px))}
-  .hero-holiday-spark-two{top:185px;right:max(1%,calc(50% - 410px))}
 }
 
 /* Event poster directly beneath the hero. */
@@ -358,7 +346,7 @@ body.greeting-video-open{overflow:hidden}
 
 /* ---------- Шинэ жилийн урилгын дугтуй ---------- */
 .envelope{position:fixed;inset:0;z-index:50;isolation:isolate;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;
-  background:#160a06 url("/assets/images/new-year-envelope-bg.jpg") center/cover no-repeat;transition:opacity .9s 1.5s,visibility 0s 2.4s}
+  background:#160a06 url("/assets/images/new-year-envelope-bg.avif") center/cover no-repeat;transition:opacity .9s 1.5s,visibility 0s 2.4s}
 .envelope::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,7,3,.05) 0%,rgba(9,9,16,.08) 40%,rgba(5,9,18,.34) 100%),radial-gradient(circle at 50% 42%,transparent 36%,rgba(7,12,23,.14) 100%)}
 .envelope::after{content:"";position:absolute;inset:clamp(10px,2.2vw,24px);z-index:2;border:1px solid rgba(236,203,132,.38);border-radius:3px;box-shadow:inset 0 0 0 5px rgba(212,176,102,.035),0 0 55px rgba(255,185,70,.08);pointer-events:none}
 .envelope:focus-visible{outline:3px solid #f7d994;outline-offset:-7px}
@@ -672,10 +660,6 @@ body:has(.thanks-bar) .music-btn{bottom:92px}
 .mc-s{display:none}
 @media (prefers-reduced-motion:reduce){.mc-btn::after{animation:none;display:none}}
 
-/* Leaders of Mongolia brand + Cyrillic typography */
-.brand-mark{position:relative;width:min(76vw,320px);height:136px;margin:0 auto 12px;overflow:hidden;pointer-events:none;background:transparent url("../images/leaders-of-mongolia-2026-transparent.png") center/contain no-repeat}
-.brand-mark::after{content:none}
-.brand-mark img{opacity:0;width:100%;height:auto}
 .env-card span,.env-seal span,.arch-in .mono{font-family:var(--f-display);font-style:italic}
 .recipient-line{width:min(78vw,320px);height:40px;margin:10px auto 0;border-bottom:1px solid color-mix(in srgb,var(--accent) 76%,transparent);position:relative}
 .recipient-line::after{content:"";position:absolute;left:50%;bottom:-3px;width:5px;height:5px;border:1px solid var(--accent);background:var(--bg);transform:translateX(-50%) rotate(45deg)}
@@ -1036,7 +1020,6 @@ html[lang="mn"] .foot-names .n1{font-family:var(--f-display);font-size:.76em;let
 @media (max-width:680px){.awards-route-hero{min-height:60svh;padding:68px 20px 42px}.awards-route-back{top:16px;left:16px}.awards-route-mark{width:84px;height:84px;margin-bottom:18px}.awards-route-mark img{width:62px!important}.awards-route h1{font-size:clamp(3rem,13.5vw,3.9rem)}.awards-route-lead{width:calc(100vw - 48px);margin-top:16px;font-size:1.03rem;line-height:1.48}.awards-route-meta{margin-top:18px}.awards-types{padding:58px 16px 30px}.awards-types-head{align-items:center}.awards-types-head>span{font-size:.55rem;letter-spacing:.11em}.awards-featured{gap:27px;margin-bottom:18px;padding:30px 25px;border-radius:28px}.awards-featured::before{inset:10px;border-radius:20px}.awards-featured::after{right:-.2em;top:-.15em;font-size:16rem}.awards-featured-emblem{width:66px;height:66px;margin-bottom:22px}.awards-featured h3{font-size:clamp(2.35rem,11vw,3.25rem)}.awards-featured-count{margin-top:21px}.awards-featured-benefits{grid-template-columns:1fr;gap:8px}.awards-featured-benefits li{min-height:59px;padding:9px 11px}.awards-featured-benefits span{font-size:1rem}.awards-type-grid{grid-template-columns:1fr}.awards-type{min-height:190px;padding:26px 27px 28px;border-radius:27px}.awards-type::before{inset:11px;border-radius:19px}.awards-type-mark{top:25px;left:27px}.awards-type h3{max-width:19ch;font-size:clamp(1.55rem,6.4vw,2rem);line-height:1.1}}
 
 @media (max-width:480px){
-  .brand-mark{width:min(78vw,300px);height:130px}
   .ticket-route-hero{min-height:62svh;padding:88px 20px 58px}
   .tickets-route h1{width:calc(100vw - 40px);font-size:clamp(2.8rem,14vw,4rem)}
   .tickets-route h1 span{display:block}

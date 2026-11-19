@@ -62,7 +62,7 @@ for (const [index, page] of pages.slice(0, 7).entries()) {
     if (!mobileNav.includes(label)) failures.push(`${htmlPaths[index]}: missing burger menu item: ${label}`);
   }
 }
-const casinoAssets = ["roulette.png", "cards.png", "chips.png", "poker-chip-red.png", "poker-chip-black.png", "poker-chip-blue.png", "poker-chip-green.png", "dice.png", "prize-wheel.png", "crown.png", "mystery-box.png"];
+const casinoAssets = ["roulette.avif", "cards.avif", "chips.avif", "poker-chip-red.avif", "poker-chip-black.avif", "poker-chip-blue.avif", "poker-chip-green.avif", "dice.avif", "prize-wheel.avif", "crown.avif", "mystery-box.avif"];
 for (const asset of casinoAssets) {
   try { await access(path.join(root, "assets/casino/3d", asset)); } catch { failures.push(`Missing optimized 3D asset: ${asset}`); }
 }
