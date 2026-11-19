@@ -152,9 +152,6 @@
     var numberRing = game.querySelector('[data-roulette-numbers]');
     var ball = game.querySelector('[data-roulette-ball]');
     var button = game.querySelector('[data-roulette-spin]');
-    var dialog = document.querySelector('[data-roulette-dialog]');
-    var picker = dialog && dialog.querySelector('[data-roulette-picker]');
-    var form = dialog && dialog.querySelector('[data-roulette-form]');
     var celebration = document.querySelector('[data-roulette-celebration]');
     var confettiLeft = celebration && celebration.querySelector('[data-roulette-confetti-left]');
     var confettiRight = celebration && celebration.querySelector('[data-roulette-confetti-right]');
@@ -175,8 +172,14 @@
     numbers.forEach(function (number, index) {
       var angle = index * sector;
       var radians = angle * Math.PI / 180;
-      var label = document.createElement('span');
+      var label = document.createElement('button');
+      var color = colorFor(number);
+      label.type = 'button';
+      label.className = 'hero-roulette-number';
       label.textContent = number;
+      label.setAttribute('data-roulette-number', number);
+      label.setAttribute('aria-pressed', 'false');
+      label.setAttribute('aria-label', number + ' · ' + (color === 'red' ? 'Улаан' : color === 'black' ? 'Хар' : 'Ногоон') + ' сонгох');
       label.style.left = (50 + Math.sin(radians) * 42.7) + '%';
       label.style.top = (50 - Math.cos(radians) * 42.7) + '%';
       label.style.transform = 'translate(-50%,-50%) rotate(' + angle + 'deg)';
@@ -187,8 +190,7 @@
     var currentRotation = 0;
     var ballRotation = 0;
     var isSpinning = false;
-    var betMode = 'color';
-    var closeTimer;
+    var selectedPrediction = null;
     var winAudioContext;
 
     function randomIndex() {
@@ -241,9 +243,9 @@
       var now = winAudioContext.currentTime;
       var master = winAudioContext.createGain();
       var compressor = winAudioContext.createDynamicsCompressor();
-      master.gain.setValueAtTime(.24, now);
-      master.gain.setValueAtTime(.24, now + 1.05);
-      master.gain.exponentialRampToValueAtTime(.001, now + 2.05);
+      master.gain.setValueAtTime(.36, now);
+      master.gain.setValueAtTime(.36, now + 1.8);
+      master.gain.exponentialRampToValueAtTime(.001, now + 3.2);
       compressor.threshold.setValueAtTime(-18, now);
       compressor.knee.setValueAtTime(12, now);
       compressor.ratio.setValueAtTime(5, now);
@@ -273,11 +275,11 @@
           oscillator.frequency.setValueAtTime(frequency * partial, start);
           noteGain.gain.setValueAtTime(.001, start);
           noteGain.gain.exponentialRampToValueAtTime(partialIndex ? .19 : .62, start + .018);
-          noteGain.gain.exponentialRampToValueAtTime(.001, start + 1.05);
+          noteGain.gain.exponentialRampToValueAtTime(.001, start + 1.7);
           oscillator.connect(noteGain);
           noteGain.connect(master);
           oscillator.start(start);
-          oscillator.stop(start + 1.08);
+          oscillator.stop(start + 1.75);
         });
       });
 
@@ -289,11 +291,11 @@
         sparkle.frequency.setValueAtTime(frequency, start);
         sparkleGain.gain.setValueAtTime(.001, start);
         sparkleGain.gain.exponentialRampToValueAtTime(.28, start + .012);
-        sparkleGain.gain.exponentialRampToValueAtTime(.001, start + .72);
+        sparkleGain.gain.exponentialRampToValueAtTime(.001, start + 1.25);
         sparkle.connect(sparkleGain);
         sparkleGain.connect(master);
         sparkle.start(start);
-        sparkle.stop(start + .75);
+        sparkle.stop(start + 1.3);
       });
     }
 
@@ -304,38 +306,101 @@
       } else renderWinChime();
     }
 
-    function openDialog() {
-      if (!dialog || dialog.open) return;
-      window.clearTimeout(closeTimer);
-      dialog.classList.remove('is-closing');
-      if (typeof dialog.showModal === 'function') dialog.showModal();
-      else dialog.setAttribute('open', '');
-      body.classList.add('roulette-dialog-open');
-      window.requestAnimationFrame(function () {
-        window.requestAnimationFrame(function () { dialog.classList.add('is-open'); });
+    function renderLoseChime() {
+      if (!winAudioContext || winAudioContext.state !== 'running') return;
+      var now = winAudioContext.currentTime;
+      var master = winAudioContext.createGain();
+      master.gain.setValueAtTime(.3, now);
+      master.gain.setValueAtTime(.3, now + .65);
+      master.gain.exponentialRampToValueAtTime(.001, now + 1.85);
+      master.connect(winAudioContext.destination);
+
+      [392, 311.13, 246.94].forEach(function (frequency, index) {
+        var start = now + index * .28;
+        var oscillator = winAudioContext.createOscillator();
+        var noteGain = winAudioContext.createGain();
+        oscillator.type = 'triangle';
+        oscillator.frequency.setValueAtTime(frequency, start);
+        oscillator.frequency.exponentialRampToValueAtTime(frequency * .84, start + .78);
+        noteGain.gain.setValueAtTime(.001, start);
+        noteGain.gain.exponentialRampToValueAtTime(.62, start + .018);
+        noteGain.gain.exponentialRampToValueAtTime(.001, start + .88);
+        oscillator.connect(noteGain);
+        noteGain.connect(master);
+        oscillator.start(start);
+        oscillator.stop(start + .92);
       });
     }
 
-    function closeDialog() {
-      if (!dialog || !dialog.open) return;
-      dialog.classList.remove('is-open', 'is-dragging');
-      dialog.classList.add('is-closing');
-      dialog.style.removeProperty('--drawer-drag-y');
-      window.clearTimeout(closeTimer);
-      closeTimer = window.setTimeout(function () {
-        if (typeof dialog.close === 'function' && dialog.open) dialog.close();
-        else dialog.removeAttribute('open');
-        dialog.classList.remove('is-closing');
-        body.classList.remove('roulette-dialog-open');
-      }, reducedMotion ? 0 : 320);
+    function playLoseChime() {
+      if (!winAudioContext) return;
+      if (winAudioContext.state === 'suspended') {
+        winAudioContext.resume().then(renderLoseChime).catch(function () {});
+      } else renderLoseChime();
     }
 
-    function showPicker() {
-      if (!dialog || !picker) return;
-      picker.hidden = false;
-      dialog.setAttribute('aria-labelledby', 'roulette-dialog-title');
-      openDialog();
+    function renderSpinSound() {
+      if (!winAudioContext || winAudioContext.state !== 'running') return;
+      var now = winAudioContext.currentTime;
+      var duration = reducedMotion ? .25 : 5.2;
+      var master = winAudioContext.createGain();
+      var elapsed = 0;
+      master.gain.setValueAtTime(.16, now);
+      master.gain.setValueAtTime(.16, now + Math.max(0, duration - .45));
+      master.gain.exponentialRampToValueAtTime(.001, now + duration);
+      master.connect(winAudioContext.destination);
+
+      while (elapsed < duration - .04) {
+        var progress = elapsed / duration;
+        var interval = progress < .18
+          ? .072 - (progress / .18) * .032
+          : .04 + Math.pow((progress - .18) / .82, 2.35) * .22;
+        var tick = winAudioContext.createOscillator();
+        var tickGain = winAudioContext.createGain();
+        var tickTime = now + elapsed;
+        tick.type = 'triangle';
+        tick.frequency.setValueAtTime(760 - progress * 270, tickTime);
+        tick.frequency.exponentialRampToValueAtTime(260, tickTime + .035);
+        tickGain.gain.setValueAtTime(.001, tickTime);
+        tickGain.gain.exponentialRampToValueAtTime(.7, tickTime + .003);
+        tickGain.gain.exponentialRampToValueAtTime(.001, tickTime + .045);
+        tick.connect(tickGain);
+        tickGain.connect(master);
+        tick.start(tickTime);
+        tick.stop(tickTime + .05);
+        elapsed += interval;
+      }
     }
+
+    function playSpinSound() {
+      if (!winAudioContext) return;
+      if (winAudioContext.state === 'suspended') {
+        winAudioContext.resume().then(renderSpinSound).catch(function () {});
+      } else renderSpinSound();
+    }
+
+    function selectNumber(number, selectedButton) {
+      if (isSpinning) return;
+      var color = colorFor(number);
+      var colorLabel = color === 'red' ? 'Улаан' : color === 'black' ? 'Хар' : 'Ногоон';
+      selectedPrediction = { mode: 'number', value: number };
+      numberRing.querySelectorAll('[data-roulette-number]').forEach(function (numberButton) {
+        var selected = numberButton === selectedButton;
+        numberButton.classList.toggle('is-selected', selected);
+        numberButton.setAttribute('aria-pressed', selected ? 'true' : 'false');
+      });
+      game.classList.remove('has-result', 'is-winner', 'is-loser', 'needs-selection', 'result-red', 'result-black', 'result-green');
+      button.querySelector('span').textContent = 'Spin';
+      button.querySelector('small').textContent = number + ' · ' + colorLabel;
+      button.setAttribute('aria-label', number + ' ' + colorLabel + ' сонгосон, roulette хүрд эргүүлэх');
+      primeWinAudio();
+    }
+
+    numberRing.addEventListener('click', function (event) {
+      var numberButton = event.target.closest('[data-roulette-number]');
+      if (!numberButton || !numberRing.contains(numberButton)) return;
+      selectNumber(Number(numberButton.getAttribute('data-roulette-number')), numberButton);
+    });
 
     function fillConfetti(container, direction) {
       if (!container) return;
@@ -371,6 +436,7 @@
     function spinWheel(prediction) {
       if (isSpinning) return;
       isSpinning = true;
+      playSpinSound();
       var selectedIndex = chooseResultIndex(prediction);
       var selectedNumber = numbers[selectedIndex];
       var selectedColor = colorFor(selectedNumber);
@@ -406,86 +472,20 @@
         if (won) {
           playWinChime();
           celebrateWin();
-        }
+        } else playLoseChime();
       }, reducedMotion ? 250 : 5300);
     }
 
     button.addEventListener('click', function () {
       if (isSpinning) return;
-      if (dialog) showPicker();
-      else spinWheel(null);
-    });
-
-    if (dialog && picker && form) {
-      var modeButtons = dialog.querySelectorAll('[data-roulette-mode]');
-      var panels = dialog.querySelectorAll('[data-roulette-panel]');
-      var numberInput = form.querySelector('[name="roulette-number"]');
-      var numberError = form.querySelector('[data-roulette-number-error]');
-      var dragHandle = dialog.querySelector('[data-roulette-drag]');
-
-      modeButtons.forEach(function (modeButton) {
-        modeButton.addEventListener('click', function () {
-          betMode = modeButton.getAttribute('data-roulette-mode');
-          modeButtons.forEach(function (item) { item.classList.toggle('is-active', item === modeButton); });
-          panels.forEach(function (panel) { panel.hidden = panel.getAttribute('data-roulette-panel') !== betMode; });
-          numberError && numberError.classList.remove('is-visible');
-          if (betMode === 'number' && numberInput) window.setTimeout(function () { numberInput.focus(); }, 50);
-        });
-      });
-
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        primeWinAudio();
-        var prediction;
-        if (betMode === 'number') {
-          var numberValue = numberInput ? Number(numberInput.value) : NaN;
-          if (!Number.isInteger(numberValue) || numberValue < 0 || numberValue > 36) {
-            numberError && numberError.classList.add('is-visible');
-            numberInput && numberInput.focus();
-            return;
-          }
-          prediction = { mode: 'number', value: numberValue };
-        } else {
-          var selectedColor = form.querySelector('[name="roulette-color"]:checked');
-          prediction = { mode: 'color', value: selectedColor ? selectedColor.value : 'red' };
-        }
-        closeDialog();
-        spinWheel(prediction);
-      });
-
-      dialog.querySelector('[data-roulette-close]').addEventListener('click', closeDialog);
-      dialog.addEventListener('cancel', function (event) { event.preventDefault(); closeDialog(); });
-      dialog.addEventListener('close', function () {
-        dialog.classList.remove('is-open', 'is-closing', 'is-dragging');
-        dialog.style.removeProperty('--drawer-drag-y');
-        body.classList.remove('roulette-dialog-open');
-      });
-      dialog.addEventListener('click', function (event) { if (event.target === dialog) closeDialog(); });
-
-      if (dragHandle) {
-        var dragStart = 0;
-        var dragDistance = 0;
-        dragHandle.addEventListener('pointerdown', function (event) {
-          if (!window.matchMedia('(max-width: 600px)').matches) return;
-          dragStart = event.clientY;
-          dragDistance = 0;
-          dragHandle.setPointerCapture(event.pointerId);
-          dialog.classList.add('is-dragging');
-        });
-        dragHandle.addEventListener('pointermove', function (event) {
-          if (!dialog.classList.contains('is-dragging')) return;
-          dragDistance = Math.max(0, event.clientY - dragStart);
-          dialog.style.setProperty('--drawer-drag-y', dragDistance + 'px');
-        });
-        dragHandle.addEventListener('pointerup', function (event) {
-          if (!dialog.classList.contains('is-dragging')) return;
-          dragHandle.releasePointerCapture(event.pointerId);
-          dialog.classList.remove('is-dragging');
-          if (dragDistance > 86) closeDialog();
-          else dialog.style.removeProperty('--drawer-drag-y');
-        });
+      if (!selectedPrediction) {
+        game.classList.add('needs-selection');
+        button.querySelector('small').textContent = 'Эхлээд тоо сонго';
+        return;
       }
-    }
+      primeWinAudio();
+      spinWheel(selectedPrediction);
+    });
   }
   setupHeroRoulette();
 
