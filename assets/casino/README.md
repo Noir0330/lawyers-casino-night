@@ -1,4 +1,4 @@
-# Lawyers' Casino Night 3D assets
+# Алтан Дэнс - 2026 Special Casino Night 3D assets
 
 Downloads доторх Envato source archive-аас web-д хэрэглэх transparent asset-уудыг сонгож, alpha channel-ийг хадгалсан AVIF форматаар `3d/` дотор байрлуулав.
 
