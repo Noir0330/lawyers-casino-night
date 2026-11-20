@@ -184,17 +184,17 @@ body.honor-letter-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.honor-letter,.honor-letter::backdrop{transition-duration:.01ms!important}}
 
 /* Artist photography stays primary; the casino objects are supporting decoration. */
-.casino-theme .artist-card-image>.artist-card-photo-image{transform:scale(1.01);filter:saturate(.88) contrast(1.06);transition:transform .55s cubic-bezier(.22,1,.36,1),filter .55s ease}
-.casino-theme .artist-card-image:hover>.artist-card-photo-image{transform:scale(1.045);filter:saturate(1) contrast(1.04)}
+.casino-theme .artist-card-image .artist-card-photo-image{transform:scale(1.01);filter:saturate(.88) contrast(1.06);transition:transform .55s cubic-bezier(.22,1,.36,1),filter .55s ease}
+.casino-theme .artist-card-image:hover .artist-card-photo-image{transform:scale(1.045);filter:saturate(1) contrast(1.04)}
 .casino-theme .artist-card-image::before{z-index:1;background:linear-gradient(180deg,rgba(8,4,12,.04) 24%,rgba(9,5,15,.24) 52%,rgba(7,6,15,.96) 100%)}
 .casino-theme .artist-card-seryoja{min-height:clamp(420px,56vw,560px)}
-.artist-card-seryoja>.artist-card-photo-image{object-position:center 8%}
-.artist-card-gangaa>.artist-card-photo-image{object-position:center 36%}
-.artist-card-lkhagvasuren>.artist-card-photo-image{object-position:center 24%}
-.artist-card-naran>.artist-card-photo-image{object-position:center 24%}
-.artist-card-magnet-brain>.artist-card-photo-image{object-position:center 32%}
-.artist-card-enerel>.artist-card-photo-image{object-position:center 35%}
-.artist-card-boldbaatar>.artist-card-photo-image{object-position:35% center}
+.artist-card-seryoja .artist-card-photo-image{object-position:center 8%}
+.artist-card-gangaa .artist-card-photo-image{object-position:center 36%}
+.artist-card-lkhagvasuren .artist-card-photo-image{object-position:center 24%}
+.artist-card-naran .artist-card-photo-image{object-position:center 24%}
+.artist-card-magnet-brain .artist-card-photo-image{object-position:center 32%}
+.artist-card-enerel .artist-card-photo-image{object-position:center 35%}
+.artist-card-boldbaatar .artist-card-photo-image{object-position:35% center}
 .casino-theme .artist-card-copy{z-index:3}.casino-theme .artist-card-image .artist-no{z-index:3}
 
 @media(max-width:720px){
@@ -205,11 +205,11 @@ body.honor-letter-open{overflow:hidden}
   .casino-hero-title{bottom:6%;max-width:90%}
 }
 @media(max-width:600px){
-  .artist-card-seryoja>.artist-card-photo-image{object-position:center 6%}
-  .artist-card-gangaa>.artist-card-photo-image{object-position:center 40%}
-  .artist-card-naran>.artist-card-photo-image{object-position:center 30%}
-  .artist-card-enerel>.artist-card-photo-image{object-position:58% center}
-  .artist-card-boldbaatar>.artist-card-photo-image{object-position:35% center}
+  .artist-card-seryoja .artist-card-photo-image{object-position:center 6%}
+  .artist-card-gangaa .artist-card-photo-image{object-position:center 40%}
+  .artist-card-naran .artist-card-photo-image{object-position:center 30%}
+  .artist-card-enerel .artist-card-photo-image{object-position:58% center}
+  .artist-card-boldbaatar .artist-card-photo-image{object-position:35% center}
 }
 @media(max-width:360px){
   .casino-theme .casino-hero-art{min-height:540px}
@@ -217,6 +217,8 @@ body.honor-letter-open{overflow:hidden}
   .casino-hero-title strong{font-size:2.85rem}
 }
 @media(min-width:901px){
+  .casino-theme .hero-celebration .hero-in{width:100%;max-width:none}
+  .casino-theme .hero-media{aspect-ratio:auto}
   .casino-theme .casino-hero-art{min-height:760px}
   .hero-roulette-game{top:94px}
 }
@@ -961,3 +963,149 @@ body.roulette-dialog-open{overflow:hidden}
   .casino-theme .casino-program-list .f-body,.casino-theme .casino-program-list li.r .f-body{padding-left:16px}
 }
 @media(prefers-reduced-motion:reduce){.casino-theme .casino-program-list li:first-child::before{animation:none}}
+
+/* Desktop navigation: a compact left dock with a separate brand orb. */
+@media(min-width:901px){
+  .casino-theme .desktop-nav{
+    top:50%;
+    left:max(12px,env(safe-area-inset-left));
+    width:64px;
+    min-height:0;
+    max-height:calc(100svh - 24px);
+    align-items:flex-start;
+    flex-direction:column;
+    gap:10px;
+    padding:0;
+    border:0;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    transform:translateY(-50%);
+    transition:width .28s cubic-bezier(.22,1,.36,1),opacity .3s,transform .3s
+  }
+  .casino-theme .desktop-nav::before{display:none}
+  .casino-theme .desktop-nav:hover,
+  .casino-theme .desktop-nav:focus-within{width:204px}
+  .casino-theme .desktop-nav-brand{
+    position:relative;
+    width:54px;
+    height:54px;
+    display:grid;
+    place-items:center;
+    flex:none;
+    gap:0;
+    margin-left:5px;
+    border-radius:50%;
+    filter:drop-shadow(0 12px 18px rgba(0,0,0,.4))
+  }
+  .casino-theme .desktop-nav-brand>span:last-child{
+    position:absolute;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    clip-path:inset(50%);
+    white-space:nowrap
+  }
+  .casino-theme .desktop-nav-monogram{
+    width:54px;
+    height:54px;
+    border:0;
+    background:url('/assets/images/altan-denes-logo.png') center/contain no-repeat;
+    box-shadow:none;
+    color:transparent;
+    font-size:0;
+    filter:drop-shadow(0 8px 14px rgba(0,0,0,.48)) drop-shadow(0 0 8px rgba(243,202,104,.16))
+  }
+  .casino-theme .desktop-nav-links{
+    width:64px;
+    min-width:0;
+    display:flex;
+    align-items:stretch;
+    flex:none;
+    flex-direction:column;
+    gap:4px;
+    margin:0;
+    padding:6px;
+    overflow:hidden;
+    border:1px solid rgba(243,202,104,.27);
+    border-radius:20px;
+    background:linear-gradient(155deg,rgba(43,6,19,.94),rgba(12,10,24,.94));
+    box-shadow:0 18px 44px -24px rgba(0,0,0,.96),inset 0 1px rgba(255,242,199,.05);
+    backdrop-filter:blur(16px) saturate(118%);
+    -webkit-backdrop-filter:blur(16px) saturate(118%);
+    transition:width .28s cubic-bezier(.22,1,.36,1)
+  }
+  .casino-theme .desktop-nav:hover .desktop-nav-links,
+  .casino-theme .desktop-nav:focus-within .desktop-nav-links{width:204px}
+  .casino-theme .desktop-nav-link{
+    width:100%;
+    min-height:48px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:flex-start;
+    flex:none;
+    padding:0 30px 0 46px;
+    overflow:hidden;
+    border-radius:14px;
+    color:transparent;
+    font-size:.82rem;
+    letter-spacing:.015em;
+    text-overflow:clip;
+    white-space:nowrap;
+    transition:color .18s ease,background .2s ease
+  }
+  .casino-theme .desktop-nav:hover .desktop-nav-link,
+  .casino-theme .desktop-nav:focus-within .desktop-nav-link{color:var(--muted)}
+  .casino-theme .desktop-nav-link::before{
+    position:absolute;
+    left:15px;
+    top:50%;
+    width:24px;
+    color:var(--suit-color);
+    font:600 1.12rem/1 var(--f-display);
+    text-align:center;
+    text-shadow:0 0 14px color-mix(in srgb,var(--suit-color) 42%,transparent);
+    transform:translateY(-50%)
+  }
+  .casino-theme .desktop-nav-link.suit-spade::before{content:"♠"}
+  .casino-theme .desktop-nav-link.suit-heart::before{content:"♥"}
+  .casino-theme .desktop-nav-link.suit-club::before{content:"♣"}
+  .casino-theme .desktop-nav-link.suit-diamond::before{content:"♦"}
+  .casino-theme .desktop-nav-link:hover,
+  .casino-theme .desktop-nav-link[aria-current="page"]{
+    color:var(--suit-color);
+    background:color-mix(in srgb,var(--suit-color) 10%,transparent)
+  }
+  .casino-theme .desktop-nav:not(:hover):not(:focus-within) .desktop-nav-link{color:transparent}
+  .casino-theme .desktop-nav-link::after{
+    left:auto;
+    right:5px;
+    top:50%;
+    bottom:auto;
+    width:3px;
+    height:18px;
+    border-radius:999px;
+    background:var(--suit-color);
+    opacity:0;
+    transform:translateY(-50%) scaleY(.35)
+  }
+  .casino-theme .desktop-nav-link[aria-current="page"]::after{
+    opacity:1;
+    transform:translateY(-50%) scaleY(1)
+  }
+  .casino-theme.has-env:not(.opened) .desktop-nav{transform:translate(-18px,-50%)}
+  body .artists-route-back,
+  body .menu-route-back,
+  body .tickets-route-back,
+  body .lottery-route-back,
+  body .awards-route-back{top:22px}
+}
+
+@media(min-width:901px) and (hover:none){
+  .casino-theme .desktop-nav,
+  .casino-theme .desktop-nav .desktop-nav-links{width:204px}
+  .casino-theme .desktop-nav:not(:hover):not(:focus-within) .desktop-nav-link{color:var(--muted)}
+  .casino-theme .desktop-nav:not(:hover):not(:focus-within) .desktop-nav-link[aria-current="page"]{color:var(--suit-color)}
+}

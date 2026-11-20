@@ -84,33 +84,74 @@
     });
   }
 
-  // Asset дахь ганц жетонууд зоос шиг тонгорч, доош хурд авч унана.
+  // Жетон, шоо нь тонгорч эргэлдэн доош хурд авч унана.
   if (globalFx && !reducedMotion) {
     var jetonShower = document.createElement('div');
     var compactJetons = window.innerWidth < 600;
-    var jetonCount = compactJetons ? 3 : 5;
-    var jetonImages = [
-      '/assets/casino/3d/poker-chip-red.avif',
-      '/assets/casino/3d/poker-chip-black.avif',
-      '/assets/casino/3d/poker-chip-blue.avif',
-      '/assets/casino/3d/poker-chip-green.avif'
+    var jetonCount = compactJetons ? 5 : 8;
+    var fallingCasinoPieces = [
+      { src: '/assets/casino/3d/poker-chip-red.avif', type: 'chip' },
+      { type: 'dice', color: 'blue' },
+      { src: '/assets/casino/3d/poker-chip-black.avif', type: 'chip' },
+      { type: 'dice', color: 'gold' },
+      { type: 'dice', color: 'green' },
+      { src: '/assets/casino/3d/poker-chip-blue.avif', type: 'chip' },
+      { type: 'dice', color: 'red' },
+      { src: '/assets/casino/3d/poker-chip-green.avif', type: 'chip' }
     ];
+    var dieFaces = [
+      { side: 'front', value: 1 },
+      { side: 'back', value: 6 },
+      { side: 'right', value: 3 },
+      { side: 'left', value: 4 },
+      { side: 'top', value: 5 },
+      { side: 'bottom', value: 2 }
+    ];
+    var diePips = {
+      1: [[2, 2]],
+      2: [[1, 1], [3, 3]],
+      3: [[1, 1], [2, 2], [3, 3]],
+      4: [[1, 1], [1, 3], [3, 1], [3, 3]],
+      5: [[1, 1], [1, 3], [2, 2], [3, 1], [3, 3]],
+      6: [[1, 1], [2, 1], [3, 1], [1, 3], [2, 3], [3, 3]]
+    };
     jetonShower.className = 'falling-jetons';
     for (var jetonIndex = 0; jetonIndex < jetonCount; jetonIndex += 1) {
       var jeton = document.createElement('span');
-      var jetonImage = document.createElement('img');
+      var fallingPiece = fallingCasinoPieces[jetonIndex % fallingCasinoPieces.length];
+      var isDice = fallingPiece.type === 'dice';
       var jetonDuration = 7.4 + (jetonIndex % 4) * 0.8;
-      jeton.className = 'falling-jeton';
+      jeton.className = 'falling-jeton' + (isDice ? ' falling-jeton-dice falling-dice-' + fallingPiece.color : '');
       jeton.style.setProperty('--jeton-left', ((jetonIndex * 37 + 9) % 94) + '%');
-      jeton.style.setProperty('--jeton-size', ((compactJetons ? 48 : 58) + (jetonIndex % 3) * 9) + 'px');
+      jeton.style.setProperty('--jeton-size', ((compactJetons ? (isDice ? 26 : 45) : (isDice ? 30 : 54)) + (jetonIndex % 3) * (isDice ? 2 : 7)) + 'px');
       jeton.style.setProperty('--jeton-duration', jetonDuration + 's');
       jeton.style.setProperty('--jeton-delay', (-(0.9 + jetonIndex * jetonDuration / jetonCount)) + 's');
-      jeton.style.setProperty('--jeton-tumble-duration', (1.2 + (jetonIndex % 3) * 0.16) + 's');
+      jeton.style.setProperty('--jeton-tumble-duration', ((isDice ? 3.1 : 1.2) + (jetonIndex % 3) * 0.18) + 's');
       jeton.style.setProperty('--jeton-tumble-delay', (-jetonIndex * 0.21) + 's');
-      jetonImage.src = jetonImages[jetonIndex % jetonImages.length];
-      jetonImage.alt = '';
-      jetonImage.draggable = false;
-      jeton.appendChild(jetonImage);
+      if (isDice) {
+        var dieCube = document.createElement('span');
+        dieCube.className = 'falling-die-cube';
+        for (var faceIndex = 0; faceIndex < dieFaces.length; faceIndex += 1) {
+          var faceDefinition = dieFaces[faceIndex];
+          var dieFace = document.createElement('span');
+          var facePips = diePips[faceDefinition.value];
+          dieFace.className = 'falling-die-face falling-die-face-' + faceDefinition.side;
+          for (var pipIndex = 0; pipIndex < facePips.length; pipIndex += 1) {
+            var diePip = document.createElement('b');
+            diePip.style.gridRow = facePips[pipIndex][0];
+            diePip.style.gridColumn = facePips[pipIndex][1];
+            dieFace.appendChild(diePip);
+          }
+          dieCube.appendChild(dieFace);
+        }
+        jeton.appendChild(dieCube);
+      } else {
+        var jetonImage = document.createElement('img');
+        jetonImage.src = fallingPiece.src;
+        jetonImage.alt = '';
+        jetonImage.draggable = false;
+        jeton.appendChild(jetonImage);
+      }
       jetonShower.appendChild(jeton);
     }
     globalFx.appendChild(jetonShower);
