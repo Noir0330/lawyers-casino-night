@@ -18,4 +18,5 @@ Collected and updated on 2026-11-18–20 for the artists line-up cards. Confirm 
 | `ikh-mongol.jpg` | Их Монгол хамтлаг | Existing Leaders Mongolia artist asset |
 | `uwliin-uwgun.jpg` | Өвлийн өвгөн | Existing Leaders Mongolia artist asset |
 | `tatar.jpg` | Татар хамтлаг | User-provided source image (`Downloads/tatar.jpg`) |
+| `munkhiin-rap.jpg`, `munkhiin-rap-landscape.jpg` | Мөнхийн Реп хамтлаг | User-provided source image (`Downloads/munhiin-rap2.jpg`); background text and logos removed with identity-preserving AI edit |
 | `carnival-dance.jpg` | Карнавал бүжиг | User-provided source image (`Downloads/casino.carnial.jpg`) |

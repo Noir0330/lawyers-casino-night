@@ -21,11 +21,11 @@ for (const [index, page] of pages.entries()) {
   if (page.includes("Leaders of Mongolia")) failures.push(`${htmlPaths[index]}: old event content remains`);
 }
 const requiredByPage = [
-  [0, ["Алтан Дэнс - 2026 Special Casino Night", "Монголын өмгөөлөгчдийн холбоо · Шинэ жил 2027", "ONE NIGHT. ONE FORTUNE", "18:00–19:00", "00:00–01:00", "Roulette", "Рулет", "Texas", "Техас", "Darts", "Дартс", "Question and Answer", "Асуулт хариулт", "Tested One&apos;s Resourcefulness and Quick-Wittedness", "Авхаалж самбаа сорьсон тоглоом", "жетон болон коктейлийн ваучер", "Үдшийн шилдэг"]],
-  [1, ["Серёжа", "Гангаа", "Х. Лхагвасүрэн", "С.Наран", "Magnet brain", "Г.Энэрэл", "Л.Болдбаатар", "Тодоо", "DJ Maya", "Их Монгол", "Өвлийн өвгөн", "Татар", "Карнавал бүжиг"]],
+  [0, ["Алтан Дэнс - 2026 Special Casino Night", "Монголын өмгөөлөгчдийн холбоо · Шинэ жил 2027", "ONE NIGHT. ONE FORTUNE", "18:00–19:00", "00:00–01:00", "Roulette", "Рулет", "Texas", "Техас", "Darts", "Дартс", "Question and Answer", "Асуулт хариулт", "Tested One&apos;s Resourcefulness and Quick-Wittedness", "Авхаалж самбаа сорьсон тоглоом", "жетон буюу коктейлийн ваучер", "Тоглогч жетоноор коктейл авч уух", "Хожигдвол коктейл уух эрхээ алдаж", "бусдыг коктейлоор дайлах боломжтой"]],
+  [1, ["Мөнхийн Реп", "Гангаа", "Х. Лхагвасүрэн", "С.Наран", "Magnet brain", "Г.Энэрэл", "Л.Болдбаатар", "Тодоо", "DJ Maya", "Их Монгол", "Өвлийн өвгөн", "Татар", "Карнавал бүжиг"]],
   [2, ["Fruit garden salad", "Жимстэй шинэ ногооны", "Roasted chicken thigh", "Үхрийн махан филей", "Гүзээлзгэнэтэй бялуу", "Шингэн хүнс", "VVIP ширээ"]],
   [3, ["Roulette", "Рулет", "Texas", "Техас", "Darts", "Дартс", "Question and Answer", "Асуулт хариулт", "Tested One&apos;s Resourcefulness and Quick-Wittedness", "Авхаалж самбаа сорьсон тоглоом"]],
-  [4, ["жетон болон коктейлийн ваучер", "хамгийн олон жетон", "Үдшийн шилдэг", "5 төрлийн тоглоом", "Хожигдвол өгсөн жетоноо алдаж", "хожвол жетоны тоогоо нэмнэ"]],
+  [4, ["жетон буюу коктейлийн ваучер", "Тоглогч жетоноор коктейл авч уух", "Хожигдвол коктейл уух эрхээ алдаж", "хамгийн олон жетон", "Үдшийн шилдэг", "бусдыг коктейлоор дайлах боломжтой"]],
   [5, ["Roulette", "Рулет", "Texas", "Техас", "Darts", "Дартс", "Question and Answer", "Асуулт хариулт", "Tested One&apos;s Resourcefulness and Quick-Wittedness", "Авхаалж самбаа сорьсон тоглоом"]],
   [6, ["Casino King 2027", "Casino Queen 2027", "Best James Bond", "Best Casino Glamour", "Best Couple"]]
 ];

@@ -93,7 +93,7 @@
 .casino-theme .envelope::before{background:radial-gradient(circle at 50% 38%,rgba(255,206,94,.13),transparent 25%),repeating-conic-gradient(from 45deg at 50% 42%,rgba(255,223,143,.04) 0 2deg,transparent 2deg 13deg),radial-gradient(circle at 16% 18%,rgba(226,30,75,.2),transparent 26%),radial-gradient(circle at 84% 76%,rgba(71,82,201,.12),transparent 28%),radial-gradient(circle at 50% 44%,transparent 24%,rgba(0,0,0,.58) 100%)}
 .casino-theme .envelope::after{border-color:rgba(247,208,109,.5);border-radius:8px;box-shadow:inset 0 0 0 4px rgba(8,3,7,.56),inset 0 0 0 5px rgba(235,190,81,.11),0 0 55px rgba(255,185,70,.08)}
 .casino-theme .env-stage::before{content:"♠   ♥   ♦   ♣";position:absolute;top:50%;left:50%;z-index:-1;width:100vw;color:rgba(255,224,151,.028);font:600 clamp(5rem,16vw,12rem)/1 var(--f-display);letter-spacing:.08em;text-align:center;white-space:nowrap;transform:translate(-50%,-51%);pointer-events:none}
-.casino-theme .env{filter:drop-shadow(0 35px 42px rgba(0,0,0,.62))}
+.casino-theme .env{filter:drop-shadow(0 8px 12px rgba(0,0,0,.52))}
 .casino-theme .env::before{inset:-11px;border-color:rgba(245,201,94,.58);box-shadow:0 0 0 4px rgba(17,4,8,.7),0 0 0 5px rgba(245,201,94,.13),0 0 40px rgba(246,180,65,.14)}
 .casino-theme .env-back{background:linear-gradient(145deg,#3a0714,#6f1029 52%,#25060e);box-shadow:inset 0 0 0 1px rgba(255,220,132,.3)}
 .casino-theme .env-liner{position:absolute;inset:2px 2px 38%;z-index:0;overflow:hidden;border-radius:7px 7px 0 0;background:radial-gradient(circle at 50% 90%,rgba(226,34,76,.42),transparent 42%),linear-gradient(150deg,#17060b,#570c20 48%,#19060c);clip-path:polygon(0 0,100% 0,50% 100%)}
@@ -159,6 +159,12 @@
 .honor-letter-invite-line{display:block}
 .honor-letter-closing{margin:26px 0 25px;color:#641128;font:600 clamp(1.08rem,2.8vw,1.38rem)/1.28 var(--f-display);font-style:italic;letter-spacing:.025em}
 .honor-letter-closing span{display:block}
+.honor-letter-closing span+span{margin-top:.16em}
+.honor-letter-signature{position:relative;width:min(100%,430px);margin:0 auto 25px;padding-top:17px;color:#4f352e;text-align:right}
+.honor-letter-signature::before{content:"";position:absolute;top:0;right:0;width:68px;height:1px;background:linear-gradient(90deg,transparent,#a66f25)}
+.honor-letter-signature span,.honor-letter-signature strong{display:block}
+.honor-letter-signature span{color:#76503c;font:italic 500 clamp(.86rem,2vw,1rem)/1.35 var(--f-display)}
+.honor-letter-signature strong{margin-top:4px;color:#641128;font:800 clamp(.6rem,1.45vw,.7rem)/1.55 var(--f-body);letter-spacing:.035em}
 .honor-letter-continue{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:45px;padding:11px 17px 11px 21px;border:1px solid #a77528;border-radius:999px;color:#fff4d8;background:linear-gradient(135deg,#76162f,#3d0917);box-shadow:0 12px 28px rgba(65,8,22,.22),inset 0 1px rgba(255,255,255,.13);font-size:.62rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
 .honor-letter-continue span{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;color:#47101c;background:#e5bd62;font-size:.95rem;letter-spacing:0}
 body.honor-letter-open{overflow:hidden}
@@ -166,21 +172,24 @@ body.honor-letter-open{overflow:hidden}
 @media(max-width:600px){
   .honor-letter{width:calc(100vw - 24px);height:calc(100svh - 24px);max-height:calc(100svh - 24px)}
   .honor-letter-card,.honor-letter-scroll{box-sizing:border-box;height:100%;max-height:none}
-  .honor-letter-scroll{display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;padding:clamp(40px,6.2svh,52px) clamp(20px,6.6vw,27px) clamp(24px,4.8svh,40px)}
-  .honor-letter-kicker{margin-bottom:clamp(9px,1.9svh,16px);font-size:clamp(.46rem,1.05svh,.5rem);letter-spacing:.2em}
-  .honor-letter h2{font-size:clamp(1rem,2.7svh,1.52rem)}
+  .honor-letter-scroll{display:flex;flex-direction:column;justify-content:flex-start;overflow:auto;padding:clamp(40px,6.2svh,52px) clamp(20px,6.6vw,27px) clamp(24px,4.8svh,40px)}
+  .honor-letter-kicker{margin-bottom:clamp(11px,1.9svh,16px);font-size:clamp(.58rem,1.3svh,.68rem);letter-spacing:.2em}
+  .honor-letter h2{font-size:clamp(1.2rem,2.8svh,1.55rem)}
   .honor-letter h2 span+span{margin-top:clamp(4px,.8svh,7px)}
   .honor-letter-divider{margin:clamp(10px,2.25svh,19px) auto;gap:clamp(9px,2.7vw,13px)}
   .honor-letter-divider span{width:clamp(22px,3.35svh,28px);height:clamp(22px,3.35svh,28px)}
   .honor-letter-address{margin-bottom:clamp(10px,2.15svh,18px);font-size:clamp(.78rem,1.75svh,.92rem);line-height:1.5}
-  .honor-letter-copy{font-size:clamp(.65rem,1.46svh,.77rem);line-height:1.62}
-  .honor-letter-copy p+p{margin-top:clamp(8px,1.65svh,14px)}
-  .honor-letter-closing{margin:clamp(11px,2.5svh,21px) 0;font-size:clamp(.9rem,2.05svh,1.08rem);line-height:1.24}
-  .honor-letter-continue{align-self:center;min-height:clamp(38px,5.35svh,45px);padding-block:clamp(7px,1.3svh,11px)}
+  .honor-letter-copy{font-size:clamp(.9rem,1.8svh,1rem);line-height:1.68}
+  .honor-letter-copy p+p{margin-top:clamp(12px,1.8svh,16px)}
+  .honor-letter-closing{margin:clamp(15px,2.5svh,22px) 0;font-size:clamp(1rem,2.15svh,1.16rem);line-height:1.3}
+  .honor-letter-signature{margin-bottom:clamp(15px,2.4svh,22px);padding-top:clamp(11px,1.8svh,15px)}
+  .honor-letter-signature span{font-size:clamp(.9rem,1.8svh,1rem)}
+  .honor-letter-signature strong{font-size:clamp(.76rem,1.45svh,.84rem)}
+  .honor-letter-continue{align-self:center;min-height:clamp(42px,5.6svh,48px);padding-block:clamp(9px,1.4svh,12px);font-size:.7rem}
   .honor-letter-continue span{width:clamp(24px,3.2svh,27px);height:clamp(24px,3.2svh,27px)}
 }
 @media(max-width:600px) and (max-height:620px){.honor-letter-scroll{padding-top:34px;padding-bottom:20px}}
-@media(max-width:360px){.honor-letter-scroll{padding-inline:22px}.honor-letter-copy{font-size:clamp(.65rem,1.46svh,.72rem)}.honor-letter-close{top:15px;right:15px}.honor-letter-suit-top{top:18px;left:19px}}
+@media(max-width:360px){.honor-letter-scroll{padding-inline:22px}.honor-letter-close{top:15px;right:15px}.honor-letter-suit-top{top:18px;left:19px}}
 @media(prefers-reduced-motion:reduce){.honor-letter,.honor-letter::backdrop{transition-duration:.01ms!important}}
 
 /* Artist photography stays primary; the casino objects are supporting decoration. */
