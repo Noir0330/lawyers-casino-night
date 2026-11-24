@@ -884,9 +884,12 @@ body.roulette-dialog-open{overflow:hidden}
 .program-head .sec-kicker{margin-bottom:12px}
 .program-head h2{margin:0!important;background:linear-gradient(110deg,#fff8e7,#f3ca68 52%,#fff0cc);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:clamp(3rem,8vw,5.3rem)!important;font-weight:500;line-height:.95}
 .program-lead{margin:17px 0 0;color:#d7bdc1;font:500 clamp(.95rem,2vw,1.08rem)/1.5 var(--f-body);letter-spacing:.04em}
-.program-summary{display:flex;align-items:center;justify-content:center;gap:18px;width:max-content;max-width:100%;margin:26px auto 0;padding:10px 19px;border:1px solid rgba(243,202,104,.25);border-radius:999px;background:rgba(10,7,15,.34);box-shadow:inset 0 1px rgba(255,255,255,.035);color:#d7bdc1;font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;backdrop-filter:blur(10px)}
-.program-summary span{white-space:nowrap}.program-summary strong{margin-right:4px;color:#f3ca68;font:600 1.05rem/1 var(--f-display)}
-.program-summary i{width:3px;aspect-ratio:1;border-radius:50%;background:#f3ca68;box-shadow:0 0 10px rgba(243,202,104,.7)}
+.program-punctuality-note{position:relative;isolation:isolate;min-height:205px;overflow:hidden;margin:34px auto 0;padding:38px 245px 38px 38px;border:1px solid rgba(243,202,104,.42);border-radius:28px;background:radial-gradient(circle at 88% 30%,rgba(243,202,104,.17),transparent 34%),linear-gradient(145deg,rgba(88,11,35,.9),rgba(13,8,17,.96));box-shadow:inset 0 0 0 7px rgba(243,202,104,.035),0 28px 60px -42px #000;text-align:left}
+.program-punctuality-note::before{content:"";position:absolute;inset:10px;z-index:-1;border:1px solid rgba(243,202,104,.14);border-radius:19px;pointer-events:none}
+.program-punctuality-note::after{content:"♠  ·  ♥  ·  ♦  ·  ♣";position:absolute;right:26px;bottom:16px;z-index:-1;color:rgba(243,202,104,.13);font:600 .62rem/1 var(--f-display);letter-spacing:.32em;white-space:nowrap}
+.program-punctuality-note p{position:relative;z-index:2;max-width:31ch;margin:0;color:#f8ead6;font:500 clamp(1rem,2.2vw,1.18rem)/1.68 var(--f-body);text-wrap:balance}
+.program-punctuality-note strong{display:block;margin-bottom:10px;color:#f3ca68;font-size:.62rem;font-weight:800;line-height:1;letter-spacing:.24em;text-transform:uppercase}
+.program-punctuality-note img{position:absolute;right:-8px;bottom:-178px;z-index:1;width:255px;height:auto;filter:drop-shadow(0 18px 20px rgba(0,0,0,.45));pointer-events:none;user-select:none}
 .casino-theme .casino-program-list{counter-reset:agenda;display:block;width:min(100%,940px);max-width:none;margin-top:0}
 .casino-theme .casino-program-list::before{top:28px;bottom:28px;width:2px;background:linear-gradient(transparent,#f3ca68 5%,#a97926 50%,#f3ca68 95%,transparent);box-shadow:0 0 20px rgba(243,202,104,.25)}
 .casino-theme .casino-program-list li,.casino-theme .casino-program-list li.r{
@@ -952,8 +955,12 @@ body.roulette-dialog-open{overflow:hidden}
   .program-head{margin-bottom:38px;padding-inline:8px}
   .program-head h2{font-size:clamp(3rem,16vw,4.25rem)!important}
   .program-lead{font-size:.95rem}
-  .program-summary{gap:11px;padding:9px 13px;font-size:.58rem;letter-spacing:.1em}
-  .program-summary strong{font-size:.95rem}
+  .program-punctuality-note{min-height:246px;margin-top:30px;padding:28px 128px 28px 24px;border-radius:23px}
+  .program-punctuality-note::before{inset:8px;border-radius:16px}
+  .program-punctuality-note::after{right:16px;bottom:13px;font-size:.5rem;letter-spacing:.2em}
+  .program-punctuality-note p{font-size:.94rem;line-height:1.62;text-wrap:pretty}
+  .program-punctuality-note strong{font-size:.55rem;letter-spacing:.18em}
+  .program-punctuality-note img{right:-20px;bottom:-33px;width:158px}
   .casino-theme .casino-program-list{max-width:560px}
   .casino-theme .casino-program-list::before{left:25px;top:28px;bottom:28px}
   .casino-theme .casino-program-list li,.casino-theme .casino-program-list li.r{grid-template-columns:50px minmax(0,1fr);grid-template-rows:auto auto;align-items:center;gap:8px 14px;min-height:0;margin:0;padding:0 0 22px}
@@ -966,8 +973,8 @@ body.roulette-dialog-open{overflow:hidden}
   .casino-theme .casino-program-list .f-body h3{font-size:1.08rem;line-height:1.42;text-wrap:pretty}
 }
 @media(max-width:390px){
-  .program-summary{gap:8px;padding-inline:10px;font-size:.54rem}
-  .program-summary strong{margin-right:2px}
+  .program-punctuality-note{padding-right:112px;padding-left:20px}
+  .program-punctuality-note img{right:-25px;width:145px}
   .casino-theme .casino-program-list li,.casino-theme .casino-program-list li.r{gap-inline:11px}
   .casino-theme .casino-program-list .f-body,.casino-theme .casino-program-list li.r .f-body{padding-left:16px}
 }
